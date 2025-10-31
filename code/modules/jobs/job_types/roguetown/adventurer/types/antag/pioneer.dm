@@ -5,7 +5,7 @@
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/bandit/pioneer
 	category_tags = list(CTAG_BANDIT)
-	maximum_possible_slots = 3 //they aren't on par with hedge knights SO WHY ARE THEY LIMITED GRAHHHHHHHHHHHH
+	maximum_possible_slots = 2 //they aren't on par with hedge knights SO WHY ARE THEY LIMITED GRAHHHHHHHHHHHH
 
 	subclass_stats = list(
 		STATKEY_INT = 3,
