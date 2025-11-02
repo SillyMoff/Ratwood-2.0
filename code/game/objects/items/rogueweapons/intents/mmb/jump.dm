@@ -13,37 +13,37 @@
 /mob/living/proc/jump_action(atom/A)
 	if(istype(get_turf(src), /turf/open/water))
 		to_chat(src, span_warning("I can't jump while floating."))
-		return
+		return FALSE
 
 	if(!A || QDELETED(A) || !A.loc)
-		return
+		return FALSE
 
 	if(A == src || A == loc)
-		return
+		return FALSE
 
 	if(src.get_num_legs() < 2)
-		return
+		return FALSE
 
 	if(pulledby && pulledby != src)
 		to_chat(src, span_warning("I'm unable to jump while grabbed."))
-		return
+		return FALSE
 
 	if(IsOffBalanced())
 		to_chat(src, span_warning("I haven't regained my balance yet."))
-		return
+		return FALSE
 
 	if(!(mobility_flags & MOBILITY_STAND))
 		if(!HAS_TRAIT(src, TRAIT_LEAPER))// The Jester cares not for such social convention.
 			to_chat(src, span_warning("I should stand up first."))
-			return
+			return FALSE
 
 	if(!isatom(A))
-		return
+		return FALSE
 
 	if(A.z != z)
 		if(!HAS_TRAIT(src, TRAIT_ZJUMP))
 			to_chat(src, span_warning("That's too high for me..."))
-			return
+			return FALSE
 
 	changeNext_move(mmb_intent.clickcd)
 
@@ -75,6 +75,7 @@
 			jrange = 1
 
 	jump_action_resolve(A, jadded, jrange, jextra)
+	return TRUE
 
 #define FLIP_DIRECTION_CLOCKWISE 1
 #define FLIP_DIRECTION_ANTICLOCKWISE 0

@@ -271,12 +271,13 @@
 		QDEL_NULL(mmb_intent) // unset our intent after
 		m_intent = old_m_intent
 		if(.)
+			clear_path()
 			start_pathing_to(target) // regenerate path now that we've jumped
 		return
 	m_intent = old_m_intent
 	return FALSE
 
-/// Force the NPC to jump to a specific destination. Handles 
+/// Force the NPC to jump to a specific destination. Handles
 /mob/living/carbon/human/proc/npc_try_jump_to(atom/jump_destination)
 	if(!jump_destination)
 		return FALSE
@@ -431,8 +432,8 @@
 			pathing_frustration = 0
 			myPath -= myPath[1]
 			NPC_THINK("MOVEMENT TURN [movement_turn]: Movement on cooldown for [movespeed/10] seconds!")
-			sleep(movespeed) // wait until next move	
-		
+			sleep(movespeed) // wait until next move
+
 // blocks, but only while path is being calculated
 /mob/living/carbon/human/proc/start_pathing_to(new_target)
 	if(!new_target)
@@ -628,7 +629,7 @@
 			// Flee before trying to pick up a weapon.
 			if(flee_in_pain && target && (target.stat == CONSCIOUS))
 				var/paine = get_complex_pain()
-				if(paine >= ((STAWIL * 10)*0.9)) 
+				if(paine >= ((STAWIL * 10)*0.9))
 					NPC_THINK("Ouch! Entering flee mode!")
 					mode = NPC_AI_FLEE
 					m_intent = MOVE_INTENT_RUN
@@ -816,7 +817,7 @@
 			return TRUE // and end turn
 	else if(!OffWeapon && prob(make_grab_chance)) // grab with our empty offhand instead of attack
 		if(npc_try_make_grab(victim)) // returns TRUE if we've finished our turn, not if we succeeded at the grab
-			return TRUE 
+			return TRUE
 
 	// attack with weapon if we have one
 	if(Weapon)
