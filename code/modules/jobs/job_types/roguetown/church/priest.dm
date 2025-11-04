@@ -90,7 +90,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	)
 
 /datum/outfit/job/roguetown/priest
-	job_bitflag = BITFLAG_CHURCH
+	job_bitflag = BITFLAG_HOLY_WARRIOR
 	has_loadout = TRUE
 	allowed_patrons = list(/datum/patron/divine/astrata)
 

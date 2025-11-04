@@ -58,7 +58,7 @@
 	name = "Acolyte"
 	jobtype = /datum/job/roguetown/monk
 	has_loadout = TRUE
-	job_bitflag = BITFLAG_CHURCH
+	job_bitflag = BITFLAG_HOLY_WARRIOR
 
 /datum/outfit/job/roguetown/monk/basic/pre_equip(mob/living/carbon/human/H)
 	..()

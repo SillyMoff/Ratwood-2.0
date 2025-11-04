@@ -20,45 +20,7 @@
 
 	typepath = /datum/round_event/antagonist/solo/vampires_and_werewolves
 
-	restricted_roles = list(
-		"Grand Duke",
-		"Grand Duchess",
-		"Knight Captain",
-		"Consort",
-		"Dungeoneer",
-		"Sergeant",
-		"Men-at-Arms",
-		"Woman-at-Arms",
-		"Marshal",
-		"Merchant",
-		"Bishop",
-		"Acolyte",
-		"Martyr",
-		"Templar",
-		"Councillor",
-		"Bandit",
-		"Prince",
-		"Princess",
-		"Hand",
-		"Steward",
-		"Magos Thrall",
-		"Seneschal",
-		"Keeper",
-		"Court Physician",
-		"Town Elder",
-		"Captain",
-		"Archivist",
-		"Knight",
-		"Dame",
-		"Court Magician",
-		"Inquisitor",
-		"Orthodoxist",
-		"Absolver",
-		"Warden",
-		"Squire",
-		"Veteran",
-		"Apothecary"
-	)
+	restricted_roles = DEFAULT_ANTAG_BLACKLISTED_ROLES
 
 /datum/round_event/antagonist/solo/vampires_and_werewolves
 	var/leader = FALSE

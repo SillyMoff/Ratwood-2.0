@@ -75,4 +75,4 @@
 				backr = /obj/item/rogue/instrument/flute
 
 /datum/outfit/job/roguetown/psyaltrist
-	job_bitflag = BITFLAG_CHURCH
+	job_bitflag = BITFLAG_HOLY_WARRIOR

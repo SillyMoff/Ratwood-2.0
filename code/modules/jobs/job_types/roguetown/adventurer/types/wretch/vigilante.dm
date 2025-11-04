@@ -7,7 +7,7 @@
 	cmode_music = 'sound/music/combatmaniac.ogg'
 	category_tags = list(CTAG_WRETCH)
 	traits_applied = list(TRAIT_DECEIVING_MEEKNESS, TRAIT_PERFECT_TRACKER)
-	maximum_possible_slots = 1 // There can only be one. 
+	maximum_possible_slots = 1 // There can only be one.
 	extra_context = "This class is best experienced without preparation."
 	subclass_skills = list(
 		/datum/skill/misc/swimming = SKILL_LEVEL_EXPERT, //To make a clean getaway from the constables
@@ -18,7 +18,7 @@
 		/datum/skill/misc/reading = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/craft/crafting = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/craft/sewing = SKILL_LEVEL_APPRENTICE, //To make your own costumes.
-		/datum/skill/misc/medicine = SKILL_LEVEL_APPRENTICE, //You WILL be getting neckstabbed A LOT. 
+		/datum/skill/misc/medicine = SKILL_LEVEL_APPRENTICE, //You WILL be getting neckstabbed A LOT.
 		/datum/skill/misc/tracking = SKILL_LEVEL_EXPERT, //SNIFF OUT JUSTICE.
 	)
 
@@ -41,19 +41,19 @@
 		var/classes = list("The Watchman", "The Gadgeteer", "I AM JUSTICE INCARNATE!!!")
 		var/classchoice = input(H, "Choose your archetypes", "Available archetypes") as anything in classes
 		switch(classchoice)
-			if("The Watchman") //Face-to-face CQC. No crit resist. Pure aura. Rorschach. 
+			if("The Watchman") //Face-to-face CQC. No crit resist. Pure aura. Rorschach.
 				H.set_blindness(0)
 				watchman_equip(H)
-			if("The Gadgeteer") //Make gadgets, be precise and smart. Think ahead before you start swinging. Nite Owl. 
+			if("The Gadgeteer") //Make gadgets, be precise and smart. Think ahead before you start swinging. Nite Owl.
 				H.set_blindness(0)
 				owl_equip(H)
-			if("I AM JUSTICE INCARNATE!!!") //THROW SHIT AT PEOPLE. RANDOM BULLSHIT GO!!!! MOON KNIGHT. 
+			if("I AM JUSTICE INCARNATE!!!") //THROW SHIT AT PEOPLE. RANDOM BULLSHIT GO!!!! MOON KNIGHT.
 				H.set_blindness(0)
 				bullshit_equip(H)
 
 /datum/outfit/job/roguetown/wretch/vigilante/proc/watchman_equip(mob/living/carbon/human/H)
-	H.adjust_skillrank_up_to(/datum/skill/combat/unarmed, 5, TRUE) //No civilized barbarian. Sorry chud. Go play Berserker if you want that. 
-	H.adjust_skillrank_up_to(/datum/skill/misc/athletics, 5, TRUE) //I can do this all day. 
+	H.adjust_skillrank_up_to(/datum/skill/combat/unarmed, 5, TRUE) //No civilized barbarian. Sorry chud. Go play Berserker if you want that.
+	H.adjust_skillrank_up_to(/datum/skill/misc/athletics, 5, TRUE) //I can do this all day.
 	backl = /obj/item/storage/backpack/rogue/backpack/bagpack
 	beltl = /obj/item/rogueweapon/knuckles
 	beltr = /obj/item/rogueweapon/stoneaxe/hurlbat
@@ -83,15 +83,16 @@
 		/obj/item/rope/chain = 1,
 		)
 	H.adjust_skillrank_up_to(/datum/skill/misc/lockpicking, 4, TRUE) //Investigations
-	H.adjust_skillrank_up_to(/datum/skill/combat/slings, 4, TRUE) // Funny as shit to use. 
-	H.adjust_skillrank_up_to(/datum/skill/combat/polearms, 3, TRUE) //Last resort CQC. Enough def on a quarterstaff to fight defensively, not enough to be truly offensive.
+	H.adjust_skillrank_up_to(/datum/skill/combat/slings, 4, TRUE) // Funny as shit to use.
+	H.adjust_skillrank_up_to(/datum/skill/combat/polearms, 4, TRUE) //Last resort CQC. Enough def on a quarterstaff to fight defensively, not enough to be truly offensive.
 	H.adjust_skillrank_up_to(/datum/skill/combat/staves, 3, TRUE) //Nearly missed this while finishing up the staff-skill port.
 	H.adjust_skillrank_up_to(/datum/skill/misc/sneaking, 4, TRUE) //I lurk in the shadows...
 	H.adjust_skillrank_up_to(/datum/skill/craft/crafting, 4, TRUE) //Crafty
 	H.adjust_skillrank_up_to(/datum/skill/misc/climbing, 5, TRUE) // Escape routes
-	H.adjust_skillrank_up_to(/datum/skill/craft/engineering, 3, TRUE) //Make your own tinkering tools and smokebombs
+	H.adjust_skillrank_up_to(/datum/skill/craft/engineering, 4, TRUE) //Make your own tinkering tools and smokebombs
 	H.adjust_skillrank_up_to(/datum/skill/craft/smelting, 3, TRUE) //Just so your smelted ingots aren't ruined
-	H.change_stat(STATKEY_INT, 3) 
+	H.change_stat(STATKEY_CON, 1)
+	H.change_stat(STATKEY_INT, 2)
 	H.change_stat(STATKEY_WIL, 3)
 	H.change_stat(STATKEY_PER, 3)
 	wretch_select_bounty(H)
@@ -108,9 +109,9 @@
 	H.adjust_skillrank_up_to(/datum/skill/misc/reading, 2, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/misc/medicine, 2, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/craft/cooking, 1, TRUE)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/magicians_brick) //Trust the plan. 
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/magicians_brick) //Trust the plan.
 	ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC) // You LITERALLY get no weapon skills. You're throwing shit at enemies. 
+	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC) // You LITERALLY get no weapon skills. You're throwing shit at enemies.
 	H.change_stat(STATKEY_SPD, 2)
 	H.change_stat(STATKEY_WIL, 1)
 	H.change_stat(STATKEY_INT, 4) //Hilarious
