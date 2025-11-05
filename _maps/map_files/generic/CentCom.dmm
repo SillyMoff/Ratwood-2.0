@@ -424,7 +424,7 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -707,7 +707,7 @@
 	},
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -738,7 +738,7 @@
 /obj/structure/flora/roguetree,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -770,7 +770,7 @@
 "bI" = (
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -945,7 +945,7 @@
 "cm" = (
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -1024,7 +1024,7 @@
 	},
 /turf/open/floor/rogue/snowpatchy,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -1402,7 +1402,7 @@
 "dP" = (
 /turf/open/water/river/flow/east,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -1480,7 +1480,7 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -1531,7 +1531,7 @@
 	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -1568,7 +1568,7 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -1586,7 +1586,7 @@
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -1613,7 +1613,7 @@
 /obj/structure/flora/roguetree/pine,
 /turf/open/floor/rogue/snowpatchy,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -1638,7 +1638,7 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -1648,7 +1648,7 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -1688,7 +1688,7 @@
 	},
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -1740,7 +1740,7 @@
 "hr" = (
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -1763,7 +1763,7 @@
 /obj/structure/flora/roguetree,
 /turf/open/floor/rogue/snowpatchy,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -1789,7 +1789,7 @@
 /obj/structure/flora/roguetree,
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -1800,7 +1800,7 @@
 /obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -1859,6 +1859,16 @@
 "iE" = (
 /turf/closed/wall/mineral/rogue/decostone,
 /area/rogue/indoors/ravoxarena)
+"iG" = (
+/obj/item/natural/feather,
+/obj/structure/table/wood{
+	icon_state = "longtable"
+	},
+/obj/structure/fluff/railing/border{
+	dir = 5
+	},
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/outdoors)
 "iH" = (
 /obj/effect/landmark/start/wretch,
 /turf/open/floor/rogue/blocks,
@@ -1892,7 +1902,7 @@
 /obj/structure/flora/roguegrass/bush,
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -2181,7 +2191,7 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -2195,7 +2205,7 @@
 /obj/structure/flora/roguegrass/bush,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -2229,6 +2239,18 @@
 	},
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors/vampiremanor)
+"nl" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors)
+"nx" = (
+/obj/structure/fluff/railing/border{
+	dir = 10
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors)
 "nA" = (
 /obj/structure/fluff/psycross/zizocross,
 /turf/open/floor/rogue/dirt,
@@ -2311,7 +2333,7 @@
 /obj/structure/fluff/railing/border/west,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -2346,7 +2368,7 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -2357,7 +2379,7 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -2391,7 +2413,7 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -2419,7 +2441,7 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/snowpatchy,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -2463,7 +2485,7 @@
 "qh" = (
 /turf/open/water/river/flow,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -2585,6 +2607,24 @@
 "rR" = (
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/eventarea)
+"rU" = (
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "longtable"
+	},
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors)
 "rX" = (
 /turf/open/floor/rogue/greenstone/glyph6,
 /area/rogue/indoors/eventarea)
@@ -2648,10 +2688,16 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
+"sJ" = (
+/obj/structure/fluff/railing/border{
+	dir = 6
+	},
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors)
 "sK" = (
 /obj/structure/fluff/statue/femalestatue/zizo{
 	desc = "An ancient statue depicting an elven woman.";
@@ -2785,7 +2831,7 @@
 /obj/structure/flora/roguetree/pine,
 /turf/open/floor/rogue/snowrough,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -2793,7 +2839,7 @@
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -2814,7 +2860,7 @@
 /obj/structure/flora/roguetree/pine,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -2852,6 +2898,16 @@
 "uJ" = (
 /turf/open/water/cleanshallow,
 /area/rogue/under/cave/inhumen)
+"uL" = (
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "longtable_mid"
+	},
+/obj/structure/roguemachine/mail{
+	mailtag = "Kingsfield"
+	},
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/outdoors)
 "uV" = (
 /obj/structure/fluff/pillow/magenta{
 	dir = 1;
@@ -2941,7 +2997,7 @@
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -2962,7 +3018,7 @@
 /obj/structure/fluff/railing/border/west,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -2970,6 +3026,10 @@
 /obj/structure/flora/roguetree/pine,
 /turf/open/floor/rogue/snowrough,
 /area/rogue/outdoors/banditcamp)
+"wj" = (
+/obj/structure/fluff/railing/border,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors)
 "wr" = (
 /obj/structure/fermentation_keg/random/beer,
 /obj/structure/fluff/railing/border,
@@ -2986,6 +3046,12 @@
 /obj/structure/stairs/d,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/banditcamp)
+"wv" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors)
 "ww" = (
 /obj/structure/flora/roguetree{
 	pixel_x = -9
@@ -3070,7 +3136,7 @@
 	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -3166,7 +3232,7 @@
 /obj/structure/handcart,
 /turf/open/floor/rogue/snowpatchy,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -3188,7 +3254,7 @@
 /obj/structure/fluff/railing/border/east,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -3207,7 +3273,7 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -3271,7 +3337,7 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -3320,7 +3386,7 @@
 /obj/structure/stairs/stone,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -3425,7 +3491,7 @@
 /obj/structure/flora/roguetree/pine,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -3543,7 +3609,7 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -3566,7 +3632,7 @@
 /obj/structure/flora/roguegrass/bush,
 /turf/open/floor/rogue/snowrough,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -3647,7 +3713,7 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -3681,7 +3747,7 @@
 	},
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -3780,7 +3846,7 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -3816,7 +3882,7 @@
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -3830,14 +3896,14 @@
 	},
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
 "FO" = (
 /turf/open/floor/rogue/snowpatchy,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -3907,7 +3973,7 @@
 "GC" = (
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -3917,7 +3983,7 @@
 	},
 /turf/open/water/river/flow,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4072,7 +4138,7 @@
 "It" = (
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4097,7 +4163,7 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4116,7 +4182,7 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4313,7 +4379,7 @@
 /obj/structure/flora/roguetree,
 /turf/open/floor/rogue/snowpatchy,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4392,7 +4458,7 @@
 /obj/structure/flora/roguetree/pine,
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4406,7 +4472,7 @@
 /obj/structure/flora/roguetree,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4492,6 +4558,9 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cave/inhumen)
+"Om" = (
+/turf/closed/wall/mineral/rogue/decostone/cand,
+/area/rogue/outdoors)
 "Op" = (
 /obj/machinery/light/rogue/wallfire/candle{
 	pixel_y = -32
@@ -4561,7 +4630,7 @@
 /obj/structure/fluff/railing/border/east,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4592,7 +4661,7 @@
 	},
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4609,7 +4678,7 @@
 /obj/structure/stairs/stone,
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4629,7 +4698,7 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4761,7 +4830,7 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4789,7 +4858,7 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4834,7 +4903,7 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4842,7 +4911,7 @@
 /obj/item/natural/bundle/stick,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4859,7 +4928,7 @@
 	},
 /turf/open/floor/rogue/snowpatchy,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4867,7 +4936,7 @@
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4913,7 +4982,7 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -4927,7 +4996,7 @@
 /obj/machinery/light/rogue/campfire,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -5005,7 +5074,7 @@
 "Uy" = (
 /turf/open/floor/rogue/snowrough,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -5034,7 +5103,7 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -5070,7 +5139,7 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/rogue/snowpatchy,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -5109,7 +5178,7 @@
 /obj/structure/far_travel,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -5177,7 +5246,7 @@
 "Wp" = (
 /turf/open/water/river/flow/west,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -5231,7 +5300,7 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -5273,7 +5342,7 @@
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -5330,7 +5399,7 @@
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -5464,7 +5533,7 @@
 /obj/structure/flora/roguetree,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -5492,7 +5561,7 @@
 /obj/structure/handcart,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -5542,7 +5611,7 @@
 "Zx" = (
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/woods{
-	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN (2).ogg');
+	droning_sound = list('sound/ambience/MOUNTAIN (1).ogg','sound/ambience/MOUNTAIN(2).ogg');
 	first_time_text = "Murder Pass";
 	name = "Bandit Woods"
 	})
@@ -8894,9 +8963,9 @@ Do
 Do
 Do
 Do
-pr
-RH
-RH
+sJ
+wv
+iG
 Ph
 Ph
 JA
@@ -9024,9 +9093,9 @@ Do
 Do
 IV
 pr
-pr
-RH
-Do
+wj
+Om
+uL
 Ph
 Ph
 Dm
@@ -9154,9 +9223,9 @@ pr
 Do
 Do
 pr
-RH
-Do
-Do
+nx
+nl
+rU
 Ph
 Ph
 yR
