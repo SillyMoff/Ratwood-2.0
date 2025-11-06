@@ -85,6 +85,7 @@ Balloon Alert / Floating Text defines
 	/datum/species/anthromorphsmall,\
 	/datum/species/kobold,\
 	/datum/species/dullahan,\
+	/datum/species/halforc,\
 	/datum/species/lamia,\
 	/datum/species/goblinp,\
 
