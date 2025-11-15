@@ -40,7 +40,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	job_subclasses = list(
 		/datum/advclass/lord/warrior,
 		/datum/advclass/lord/merchant,
-		/datum/advclass/lord/mage,
+		/datum/advclass/lord/wizard,
 		/datum/advclass/lord/inbred
 	)
 

@@ -2,7 +2,8 @@
 
 /obj/effect/proc_holder/spell/self/findfamiliar
 	name = "Find Familiar"
-	desc = "Summon a loyal magical companion to aid you in your adventures. Reusing the spell with an active familiar can awaken its sentience."
+	desc = "Summon a loyal magical companion to aid you in your adventures. Reusing the spell with an active familiar can awaken its sentience.\n\
+	It may be cheaper to craft a scroll, rather than learning this traditionally."
 	overlay_state = "null"
 	sound = list('sound/magic/whiteflame.ogg')
 	active = FALSE
