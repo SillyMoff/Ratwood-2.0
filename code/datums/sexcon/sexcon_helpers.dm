@@ -88,13 +88,17 @@
 	var/obj/item/organ/vagina/vag = wife.getorganslot(ORGAN_SLOT_VAGINA)
 	if(!vag && !HAS_TRAIT(wife, TRAIT_BAOTHA_FERTILITY_BOON))
 		return
+	if(!is_virile())
+		return
 	if(vag)
+		if(!wife.is_fertile())
+			return
 		var/prob_for_impreg = vag.impregnation_probability
 		if(wife.sexcon.knotted_status) // if they're knotted, increased by two factor for dramatic impact
 			prob_for_impreg =  min(prob_for_impreg * 2, IMPREG_PROB_MAX)
 		if(HAS_TRAIT(wife, TRAIT_BAOTHA_FERTILITY_BOON))
 			prob_for_impreg =  min(prob_for_impreg * 2, IMPREG_PROB_MAX) //if female has baotha boon increase chances
-		if(prob(prob_for_impreg) && wife.is_fertile() && is_virile())
+		if(prob(prob_for_impreg))
 			vag.be_impregnated(src)
 			vag.impregnation_probability = IMPREG_PROB_DEFAULT // Reset on success
 		else
@@ -103,7 +107,7 @@
 		var/prob_for_impreg = wife.mpreg_chance
 		if(wife.sexcon.knotted_status)
 			prob_for_impreg =  min(prob_for_impreg * 2, IMPREG_PROB_MAX)
-		if(prob(prob_for_impreg) && is_virile())
+		if(prob(prob_for_impreg))
 			if(wife.mpreg)
 				to_chat(wife, span_love("I feel a surge of warmth inside me again..."))
 				return
