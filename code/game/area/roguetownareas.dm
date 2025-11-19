@@ -770,3 +770,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	name = "dream realm"
 	icon_state = "dream"
 	first_time_text = "Abyssal Dream"
+
+/area/rogue/underworld/adventurespawn
+	name = "wayfarer's dream"
+	icon_state = "dream"
+	first_time_text = "A Wayfarer's Dream"
