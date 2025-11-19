@@ -1,11 +1,16 @@
+//The Martyr is a WEAPON of the Church.
+//There is no hopium to be had.
+//You subsist off faith.
+//You LYVE for the faith.
+//You'll die for it, too.
 /datum/job/roguetown/martyr
 	title = "Martyr"
 	department_flag = CHURCHMEN
 	faction = "Station"
-	tutorial = "Martyrs are hand-picked among the most devout of the Holy See. \
-	They are given one of the See's cherished relics to protect the Church, and to inspire hope and lead by example of grace, \
-	kindness and vicious intolerance to any who do not share the belief of the Ten. \
-	They have sworn an Oath in the sight of the gods, and will fulfill it to the bitter end."
+	tutorial = "Prayer. Conviction. Intent. \
+	Words they'd drilled into your skull, from the moment of induction, up until your assignment as the Prelate's ward. \
+	A crimson gild upon your soul, a taint that can't be cleared. For you are a weapon of the Holy See. No more. No less. \
+	Defend the Prelate. Give up no hallowed ground. Die for the Ten."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_NO_CONSTRUCT
 	allowed_patrons = ALL_DIVINE_PATRONS
@@ -44,10 +49,10 @@
 
 /datum/advclass/martyr
 	name = "Martyr"
-	tutorial = "Martyrs are hand-picked among the most devout of the Holy See. \
-	They are given one of the See's cherished relics to protect the Church, and to inspire hope and lead by example of grace, \
-	kindness and vicious intolerance to any who do not share the belief of the Ten. \
-	They have sworn an Oath in the sight of the gods, and will fulfill it to the bitter end."
+	tutorial = "Prayer. Conviction. Intent. \
+	Words they'd drilled into your skull, from the moment of induction, up until your assignment as the Prelate's ward. \
+	A crimson gild upon your soul, a taint that can't be cleared. For you are a weapon of the Holy See. No more. No less. \
+	Defend the Prelate. Give up no hallowed ground. Die for the Ten."
 	outfit = /datum/outfit/job/roguetown/martyr/basic
 	subclass_languages = list(/datum/language/grenzelhoftian)
 	category_tags = list(CTAG_MARTYR)
@@ -61,15 +66,15 @@
 	subclass_skills = list(
 	//No, they don't get any miracles. Their miracle is being able to use their weapon at all.
 		/datum/skill/combat/swords = SKILL_LEVEL_EXPERT,
+		/datum/skill/combat/wrestling = SKILL_LEVEL_EXPERT,
 		/datum/skill/misc/athletics = SKILL_LEVEL_EXPERT,
 		/datum/skill/misc/tracking = SKILL_LEVEL_EXPERT,
 		/datum/skill/misc/medicine = SKILL_LEVEL_EXPERT,
-		/datum/skill/misc/climbing = SKILL_LEVEL_JOURNEYMAN,
-		/datum/skill/combat/wrestling = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/shields = SKILL_LEVEL_JOURNEYMAN,
-		/datum/skill/misc/reading = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/unarmed = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/knives = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/misc/climbing = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/misc/reading = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/craft/cooking = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/swimming = SKILL_LEVEL_NOVICE,
 		/datum/skill/misc/sneaking = SKILL_LEVEL_NOVICE,
@@ -113,7 +118,7 @@
 	var/boon_choice = input(H,"Choose your BOON.", "TAKE UP THE SEE'S GIFT") as anything in boons
 	switch(boon_choice)
 //Generic boons.
-		if("Endurance")//Hard dismemberment.
+		if("Endurance")//Hard dismemberment. Pair with ult for funny results.
 			ADD_TRAIT(H, TRAIT_HARDDISMEMBER, TRAIT_GENERIC)
 		if("Indefatigable")//Battle ready, which provides energy over time and you can remain in combat mode.
 			ADD_TRAIT(H, TRAIT_BREADY, TRAIT_GENERIC)
