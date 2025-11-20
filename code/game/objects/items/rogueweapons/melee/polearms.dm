@@ -101,12 +101,14 @@
 	clickcd = CLICK_CD_CHARGED
 
 /datum/intent/sword/bash
-	name = "pommel bash"
+	name = "crossguard bash"
 	blade_class = BCLASS_BLUNT
 	icon_state = "inbash"
 	attack_verb = list("bashes", "strikes")
 	penfactor = BLUNT_DEFAULT_PENFACTOR
-	damfactor = NONBLUNT_BLUNT_DAMFACTOR
+	damfactor = 1.2
+	swingdelay = 13
+	clickcd = 13
 	item_d_type = "blunt"
 	intent_intdamage_factor = BLUNT_DEFAULT_INT_DAMAGEFACTOR
 
@@ -1022,16 +1024,16 @@
 	name = "steel flamberge"
 	desc = "A close relative of the Grenzelhoftian \"zweihander\", favored by Otavan nobility. The name comes from its unique, flame-shaped blade; a labor only surmountable by Psydonia's finest weaponsmiths."
 	icon_state = "steelflamberge"
-	max_blade_int = 180
-	max_integrity = 130
+	max_blade_int = 200
+	max_integrity = 180
 	wdefense = 6
 
 /obj/item/rogueweapon/greatsword/grenz/flamberge/malum
 	name = "forgefiend flamberge"
 	desc = "This sword's creation took a riddle in its own making. A great sacrifice was made for a blade of perfect quality."
 	icon_state = "malumflamberge"
-	max_integrity = 200
-	max_blade_int = 200
+	max_integrity = 240
+	max_blade_int = 240
 
 /obj/item/rogueweapon/greatsword/grenz/flamberge/blacksteel
 	name = "blacksteel flamberge"

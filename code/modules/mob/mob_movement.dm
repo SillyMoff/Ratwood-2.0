@@ -113,7 +113,7 @@
 		return FALSE
 	else if(mob.is_shifted)
 		mob.unpixel_shift()
-	
+
 	mob.last_client_interact = world.time
 
 	var/mob/living/L = mob  //Already checked for isliving earlier
@@ -259,7 +259,7 @@
 			return FALSE
 		move_delay = world.time + 10
 		to_chat(src, span_warning("I am clinging to [L]! I need a stronger grip to stop them!"))
-		return TRUE    
+		return TRUE
 
 	if(isanimal(mob.pulling))
 		var/mob/living/simple_animal/bound = mob.pulling
@@ -638,12 +638,6 @@
 		switch(intent)
 			if(MOVE_INTENT_SNEAK)
 				m_intent = MOVE_INTENT_SNEAK
-				if(isliving(src))
-					var/mob/living/L = src
-					if((/datum/mob_descriptor/prominent/prominent_bottom in L.mob_descriptors) || (/datum/mob_descriptor/prominent/prominent_thighs in L.mob_descriptors))
-						L.loud_sneaking = TRUE
-					else
-						L.loud_sneaking = FALSE
 				update_sneak_invis()
 
 			if(MOVE_INTENT_WALK)
@@ -668,7 +662,7 @@
 	if(hud_used?.static_inventory) //Update UI
 		for(var/atom/movable/screen/rogmove/selector in hud_used.static_inventory)
 			selector.update_icon()
-			
+
 	if(!silent)
 		playsound_local(src, 'sound/misc/click.ogg', 100)
 
@@ -760,7 +754,7 @@
 		src.apply_status_effect(/datum/status_effect/buff/magearmor)
 		return TRUE
 
-	
+
 
 /mob/proc/toggle_eye_intent(mob/user) //clicking the fixeye button either makes you fixeye or clears your target
 	if(fixedeye)
@@ -804,7 +798,7 @@
 /mob/proc/canZMove(direction, turf/target)
 	return FALSE
 
-// Ageneral-purpose proc used to centralize checks to skip turf, movement, step, etc. effects 
+// Ageneral-purpose proc used to centralize checks to skip turf, movement, step, etc. effects
 // for mobs that are floating, flying, intangible, etc.
 /mob/proc/is_floor_hazard_immune()
 	return throwing || (movement_type & (FLYING|FLOATING))
