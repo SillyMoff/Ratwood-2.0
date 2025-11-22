@@ -139,38 +139,35 @@
     if(chance > 100) chance = 100
 
     var/list/effect_list = list(
-        "buff/debuff",
+		"buff/debuff",
 
 		"remove trait",
-        "add trait",
+		"add trait",
 
-		"max mana",
-		"max stamina",
+		"add 2u reagent",
+
 		"max devotion",
+		"zero devotion",
 
-        "drain stamina",
-        "drain mana",
-        "drain devotion",
+		"nauseate",
+		"slip",
+		"jail in arcyne walls",
 
-        "nauseate",
-        "slip",
-        "jail in arcyne walls",
+		"make deadite",
+		"make vampire",
+		"make werewolf",
 
-        "make deadite",
-        "make vampire",
-        "make werewolf",
+		"shock",
+		"set on fire",
 
-        "shock",
-        "set on fire",
+		"easy ambush",
+		"difficult ambush",
 
-        "easy ambush",
-        "difficult ambush",
-
-        "explode",
-        "nugget",
-        "gib and spawn player controlled mob",
-        "gib",
-        "gib and explode"
+		"explode",
+		"nugget",
+		"gib and spawn player controlled mob",
+		"gib",
+		"gib and explode"
     )
 
     var/effect_proc = input(src,
@@ -225,7 +222,7 @@
 			"debuff_type" = debuff_choices[debuff_id]
 		)
 
-	if(effect_proc == "gib and spawn player controlled mob")
+	if(effect_proc == "gib and spawn player controlled mob" || effect_proc == "easy ambush" || effect_proc == "difficult ambush")
     	// get all simple animal mob types
 		var/list/mob_types = subtypesof(/mob/living/simple_animal)
 

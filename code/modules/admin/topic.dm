@@ -1362,7 +1362,13 @@
 		var/popup = "<center><b>Curses for [the_key]</b><br><br>"
 
 		// List curses
-		if(!length(json))
+		var/valid = FALSE
+		for(var/c in json)
+			if(json[c])
+				valid = TRUE
+				break
+
+		if(!valid)
 			popup += "<i>No curses found.</i><br>"
 		else
 			popup += "<b>Active Curses:</b><br>"
@@ -1431,6 +1437,7 @@
 		var/key = href_list["inspectcurse"]
 		var/name = href_list["name"]
 
+		// Load JSON
 		var/json_file = file("data/player_saves/[copytext(key,1,2)]/[key]/curses.json")
 		if(!fexists(json_file))
 			WRITE_FILE(json_file, "{}")
@@ -1442,11 +1449,34 @@
 
 		var/list/C = json[name]
 
-		var/text = "<b>Curse:</b> [name]<br><hr>"
-		for(var/field in C)
-			text += "<b>[field]:</b> [C[field]]<br>"
+		var/text = "<b><u>Curse:</u></b> [name]<br><hr>"
 
-		var/datum/browser/noclose/inspect = new(usr, "curseinfo", "Curse Details", 360, 300)
+		// Pretty formatting for fields
+		for(var/field in C)
+			var/value = C[field]
+
+			// Lists need special formatting (effect_args)
+			if(islist(value))
+				text += "<b>[field]:</b><br>"
+				for(var/subfield in value)
+					text += "&nbsp;&nbsp;<b>[subfield]:</b> [value[subfield]]<br>"
+			else
+				text += "<b>[field]:</b> [value]<br>"
+
+		// Compute days remaining (optional polish)
+		if(C["expires"])
+			var/days_left = C["expires"] - now_days()
+			if(days_left < 0) days_left = 0
+			text += "<br><b>Days Remaining:</b> [days_left]<br>"
+
+		// Display cooldown info
+		if(C["cooldown"])
+			text += "<b>Cooldown (seconds):</b> [C["cooldown"]]<br>"
+
+		if(C["last_trigger"])
+			text += "<b>Last Trigger Timestamp:</b> [C["last_trigger"]]<br>"
+
+		var/datum/browser/noclose/inspect = new(usr, "curseinfo", "Curse Details", 400, 360)
 		inspect.set_content("<center>[text]</center>")
 		inspect.open()
 		return
