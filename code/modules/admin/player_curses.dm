@@ -36,6 +36,7 @@
     chance_percent = 100,
     trigger = null,
     effect_proc = null,
+	list/effect_args = null,
     admin_name = "unknown",
     reason = "No reason supplied."
 )
@@ -51,14 +52,15 @@
     if(json[curse]) return FALSE
 
     json[curse] = list(
-        "expires" = now_days() + duration_days,
-        "chance" = chance_percent,
-        "cooldown" = cooldown_seconds,
-        "last_trigger" = 0,
-        "trigger" = trigger,
-        "effect" = effect_proc,
-        "admin" = admin_name,
-        "reason" = reason
+        "expires"     = now_days() + duration_days,
+        "chance"      = chance_percent,
+        "cooldown"    = cooldown_seconds,
+        "last_trigger"= 0,
+        "trigger"     = trigger,
+        "effect"      = effect_proc,
+        "effect_args" = effect_args,
+        "admin"       = admin_name,
+        "reason"      = reason
     )
 
     fdel(json_file)
@@ -97,19 +99,26 @@
     var/list/trigger_list = list(
         "on spawn",
         "on death",
-        "on behead",
-        "on crit",
         "on sleep",
-        "on walk",
-        "on run",
-        "on jump",
-        "on bite",
-        "on break wall/door/window",
+
         "on attack",
         "on cast spell",
         "on receive damage",
-        "on receive miracle",
-        "on sex"
+        "on spell/miracle target",
+        "on crit status",
+        "on behead",
+
+        "on break wall/door/window",
+        "on craft",
+
+        "on sex",
+        "on orgasm",
+
+        "on bite",
+        "on jump",
+
+        "on run",
+        "on walk",
     )
 
     var/trigger = input(src,
@@ -130,19 +139,33 @@
     if(chance > 100) chance = 100
 
     var/list/effect_list = list(
-        "lesser miracle on self",
-        "remove trait",
+        "buff/debuff",
+
+		"remove trait",
         "add trait",
-        "drain stam",
-        "drain rogstam",
+
+		"max mana",
+		"max stamina",
+		"max devotion",
+
+        "drain stamina",
+        "drain mana",
+        "drain devotion",
+
         "nauseate",
         "slip",
         "jail in arcyne walls",
+
         "make deadite",
+        "make vampire",
+        "make werewolf",
+
         "shock",
         "set on fire",
+
         "easy ambush",
         "difficult ambush",
+
         "explode",
         "nugget",
         "gib and spawn player controlled mob",
@@ -151,11 +174,85 @@
     )
 
     var/effect_proc = input(src,
-        "Choose a mob proc to call when the curse triggers:",
-        "Effect Selection"
+		"Choose the effect this curse will apply:",
+		"Effect Selection"
     ) as null|anything in effect_list
 
     if(!effect_proc) return
+
+    var/list/effect_args = null
+
+	if(effect_proc == "add trait" || effect_proc == "remove trait")
+		var/list/trait_choices = roguetraits.Copy()
+		trait_choices = trait_choices.Keys()
+		var/action = (effect_proc == "add trait" ? "add" : "remove")
+
+		var/trait_id = input(src,
+			"Select the trait to [action]:",
+			"Trait Selection"
+		) as null|anything in trait_choices
+
+		if(!trait_id)
+			return
+
+		effect_args = list("trait" = trait_id)
+
+	if(effect_proc == "buff/debuff")
+		var/list/debuff_types = subtypesof(/datum/status_effect/debuff)
+
+		// build a list of id → typepath for clean selection
+		var/list/debuff_choices = list()
+
+		for(var/typepath in debuff_types)
+			var/datum/status_effect/debuff/D = new typepath
+			if(D.id)
+				debuff_choices[D.id] = typepath
+
+		if(!debuff_choices.len)
+			usr << "No effects found."
+			return
+
+		var/debuff_id = input(src,
+			"Select the effect to apply:",
+			"Effect Selection"
+		) as null|anything in debuff_choices
+
+		if(!debuff_id)
+			return
+
+		effect_args = list(
+			"debuff_id" = debuff_id,
+			"debuff_type" = debuff_choices[debuff_id]
+		)
+
+	if(effect_proc == "gib and spawn player controlled mob")
+    	// get all simple animal mob types
+		var/list/mob_types = subtypesof(/mob/living/simple_animal)
+
+		// build a clean name → typepath chooser
+		var/list/mob_choices = list()
+
+		for(var/typepath in mob_types)
+			var/mob/living/simple_animal/M = new typepath
+			if(M && M.name)
+				mob_choices[M.name] = typepath
+
+		if(!mob_choices.len)
+			usr << "No mob types found."
+			return
+
+		var/mob_name = input(src,
+			"Select the mob to spawn and give to the player:",
+			"Mob Selection"
+		) as null|anything in mob_choices
+
+		if(!mob_name)
+			return
+
+		effect_args = list(
+			"mob_name" = mob_name,
+			"mob_type" = mob_choices[mob_name]
+		)
 
     var/duration = input(src,
         "Duration (REAL WORLD DAYS):",
@@ -179,7 +276,9 @@
         "None"
     ) as null|text
 
-    var/curse_name = "[chance]pct_[effect_proc]_[trigger]_[rand(1000,9999)]"
+    var/cname_safe_effect = replacetext(effect_proc, " ", "_")
+    var/cname_safe_trigger = replacetext(trigger, " ", "_")
+    var/curse_name = "[chance]pct_[cname_safe_effect]_[cname_safe_trigger]_[rand(1000,9999)]"
 
     var/success = apply_player_curse(
         key,
@@ -188,7 +287,8 @@
         cooldown,
         chance,
         trigger,
-        effect_proc,
+		effect_proc,
+		effect_args,
         usr.ckey,
         reason
     )
