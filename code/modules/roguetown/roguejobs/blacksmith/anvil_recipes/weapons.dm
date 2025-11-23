@@ -832,7 +832,7 @@
 /datum/anvil_recipe/weapons/silver/broadsword
 	name = "Broadsword, Silver (+2 Silver, +1 Small Log)"
 	req_bar = /obj/item/ingot/silver
-	additional_items = list(/obj/item/ingot/silver, /obj/item/ingot/silver, /obj/item/ingot/silver, /obj/item/grown/log/tree/small)
+	additional_items = list(/obj/item/ingot/silver, /obj/item/ingot/silver, /obj/item/grown/log/tree/small)
 	created_item = /obj/item/rogueweapon/sword/long/kriegmesser/silver
 
 /datum/anvil_recipe/weapons/silver/waraxe
