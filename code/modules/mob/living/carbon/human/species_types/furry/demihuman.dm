@@ -35,6 +35,7 @@
 		/obj/item/bodypart/taur/dragon,
 		/obj/item/bodypart/taur/noodle,
 		/obj/item/bodypart/taur/horse,
+		/obj/item/bodypart/taur/deer,
 		/obj/item/bodypart/taur/redpanda,
 		/obj/item/bodypart/taur/rat,
 		/obj/item/bodypart/taur/skunk,

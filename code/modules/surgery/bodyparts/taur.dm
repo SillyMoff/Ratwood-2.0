@@ -212,6 +212,15 @@ GLOBAL_LIST_INIT(taur_types, subtypesof(/obj/item/bodypart/taur))
 
 	has_taur_color = TRUE
 
+/obj/item/bodypart/taur/deer
+	name = "Deer Body"
+
+	offset_x = -16
+	taur_icon_state = "deer_s"
+	taur_markings_state = "deer_markings"
+
+	has_taur_color = TRUE
+
 /obj/item/bodypart/taur/redpanda
 	name = "Red Panda Body"
 
