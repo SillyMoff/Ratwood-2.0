@@ -5,7 +5,9 @@
 	user << browse(generate_language_html(user), "window=language_menu;size=800x600")
 
 /datum/preferences/proc/generate_language_html(mob/user)
-	var/total_triumphs = usr.get_triumphs()
+	var/total_triumphs = 0
+	if(user && user.client)
+		total_triumphs = user.get_triumphs() || 0
 	var/spent_triumphs = 0
 	
 	// Calculate spent triumphs from languages (2 each)
@@ -338,25 +340,26 @@
 						var/language_path = choices[chosen_language]
 						
 						// Check triumph cost
-						var/total_triumphs = usr.get_triumphs()
+						var/total_triumphs = 0
+						if(usr && usr.client)
+							total_triumphs = usr.get_triumphs() || 0
 						var/spent_triumphs = 0
 						
 						// Count current language purchases (excluding this slot)
 						var/other_slot_var = slot == 1 ? "extra_language_2" : "extra_language_1"
 						if(vars[other_slot_var] && vars[other_slot_var] != "None")
 							spent_triumphs += 2
-						
+							
 						if(spent_triumphs + 2 > total_triumphs)
 							to_chat(usr, span_warning("You don't have enough triumphs! Need 2, but only have [total_triumphs - spent_triumphs] remaining."))
 							return
-						
+							
 						vars[slot_var] = language_path
 						to_chat(usr, span_notice("Selected [chosen_language] for language slot [slot]."))
 					
 					save_preferences()
 				
 				open_language_menu(usr)
-			
 			if("clear")
 				vars[slot_var] = "None"
 				save_preferences()
