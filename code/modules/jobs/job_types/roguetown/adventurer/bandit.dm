@@ -7,7 +7,8 @@
 	spawn_positions = 3
 	antag_job = TRUE
 	allowed_races = RACES_ALL_KINDS
-	tutorial = "Long ago you did a crime worthy of your bounty being hung on the wall outside of the local inn. You now live with your fellow freemen in the bog, and generally get up to no good."
+	tutorial = "At some point in your lyfe, you'd fallen to the wrong side of the carriage. Whether by butchery or finesse, you're known throughout the land. \
+	Yet one of many faces in a tavern, hung up on a wall. A tale told by the locals. Now, you lyve in a camp with your fellows, to avoid an unpleasant end."
 
 	outfit = null
 	outfit_female = null
@@ -19,6 +20,7 @@
 	min_pq = 3
 	max_pq = null
 	round_contrib_points = 5
+	allowed_patrons = ALL_INHUMEN_PATRONS//YEAH!!! MURDER!!!
 
 	advclass_cat_rolls = list(CTAG_BANDIT = 20)
 	PQ_boost_divider = 10
@@ -27,7 +29,7 @@
 	advjob_examine = TRUE
 	always_show_on_latechoices = TRUE
 	job_reopens_slots_on_death = FALSE //no endless stream of bandits, unless the migration waves deem it so
-	job_traits = list(TRAIT_SELF_SUSTENANCE)
+	job_traits = list(TRAIT_SELF_SUSTENANCE, TRAIT_DEATHBYSNUSNU, TRAIT_STEELHEARTED, TRAIT_KNOWNCRIMINAL)
 	same_job_respawn_delay = 1 MINUTES
 	cmode_music = 'sound/music/cmode/antag/combat_deadlyshadows.ogg'
 	job_subclasses = list(
@@ -37,7 +39,8 @@
 		/datum/advclass/knave,
 		/datum/advclass/roguemage,
 		/datum/advclass/sawbones,
-		/datum/advclass/sellsword
+		/datum/advclass/sellsword,
+		/datum/advclass/pioneer
 	)
 
 /datum/job/roguetown/bandit/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
@@ -59,14 +62,7 @@
 		H.mind.add_antag_datum(new_antag)
 		H.grant_language(/datum/language/thievescant)
 		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "BANDIT"), 5 SECONDS)
-		var/wanted = list("I am a notorious criminal", "I am a nobody")
-		var/wanted_choice = input("Are you a known criminal?") as anything in wanted
-		switch(wanted_choice)
-			if("I am a notorious criminal") //Extra challenge for those who want it
-				bandit_select_bounty(H)
-				ADD_TRAIT(H, TRAIT_KNOWNCRIMINAL, TRAIT_GENERIC)
-			if("I am a nobody") //Nothing ever happens
-				return
+		bandit_select_bounty(H)
 
 // Changed up proc from Wretch to suit bandits bit more
 /proc/bandit_select_bounty(mob/living/carbon/human/H)
@@ -82,7 +78,7 @@
 	switch(bounty_severity)
 		if("Small Fish")
 			bounty_total = rand(300, 400)
-		if("Bay Butcher")
+		if("Rockhill Butcher")
 			bounty_total = rand(400, 500)
 		if("Vale Boogeyman")
 			bounty_total = rand(500, 600)
@@ -95,19 +91,17 @@
 	var/datum/job/bandit_job = SSjob.GetJob("Bandit")
 	if(!bandit_job)
 		return
-	var/banditcount = 0
-	for(var/datum/antagonist/bandit/A in GLOB.antagonists)
-		banditcount += 1
-	var/free_capacity = SSgamemode.get_antag_cap() - SSgamemode.get_antag_count() + banditcount	//Making use of our storyteller calculations for how many slots ought to be open for bandits at any point
-	free_capacity = max(free_capacity, 0)
-	// Baseline: 1 bandit slot if ANY antag capacity exists.
-	var/slots
 
-	if(free_capacity > 3)
-		slots = round(free_capacity)
-		slots = clamp(slots, 3, 6)	//max of 6 at any point
-		bandit_job.total_positions = slots
-		bandit_job.spawn_positions = slots
-	else
-		bandit_job.total_positions = 3
-		bandit_job.spawn_positions = 3
+	var/player_count = length(GLOB.joined_player_list)
+	var/slots = 3
+
+	//Add 1 slot for every 12 players over 30.
+	if(player_count > 42)
+		var/extra = floor((player_count - 42) / 12)
+		slots += extra
+
+	//3 slots minimum, 7 maximum.
+	slots = min(slots, 7)
+
+	bandit_job.total_positions = slots
+	bandit_job.spawn_positions = slots
