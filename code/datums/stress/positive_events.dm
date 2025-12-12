@@ -401,3 +401,8 @@
 	stressadd = -6
 	desc = span_suppradio("The Hoardmaster's greed plays with my mind...")
 	timer = INFINITY
+
+/datum/stressevent/oath_ring
+	stressadd = 1
+	desc = span_aiprivradio("My oath keeps me going. One step at a time. How much longer can I continue? How long has it been?")
+	timer = INFINITY

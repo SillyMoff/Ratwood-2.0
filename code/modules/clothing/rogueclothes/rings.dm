@@ -515,3 +515,47 @@
 		user.change_stat(STATKEY_WIL, -2)
 		active_item = FALSE
 	return
+
+//Oathmarked's fluff ring. Don't lose this!!!
+/obj/item/clothing/ring/oathmarked
+	name = "oathmarked's signet"
+	icon_state = "ring_oath"
+	desc = "A ring, once of great power, now holding little but a spark. This had surely been clutched in talon through the ages."
+	smeltresult = /obj/item/ash//You've ruined it. Good going, champ.
+	sellprice = 125
+
+/obj/item/clothing/ring/oathmarked/equipped(mob/living/user, slot)
+	. = ..()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.merctype == 16) //Oathmarked
+			//The bad.
+			H.remove_status_effect(/datum/status_effect/debuff/lost_oath_ring)
+			H.remove_stress(/datum/stressevent/oath_ring_lost)
+			//The good.
+			H.add_stress(/datum/stressevent/oath_ring)
+			//Stat change.
+			user.change_stat(STATKEY_CON, 1)
+			user.change_stat(STATKEY_WIL, 1)
+
+/obj/item/clothing/ring/oathmarked/dropped(mob/living/user)
+	. = ..()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.merctype == 16) //Oathmarked
+			//The bad.
+			H.apply_status_effect(/datum/status_effect/debuff/lost_oath_ring)
+			H.add_stress(/datum/stressevent/oath_ring_lost)
+			//More bad.
+			H.remove_stress(/datum/stressevent/oath_ring)
+			//Stat change.
+			user.change_stat(STATKEY_CON, -1)
+			user.change_stat(STATKEY_WIL, -1)
+
+/obj/item/clothing/ring/oathmarked/examine(mob/user)
+	. = ..()
+	if(isdracon(user))
+		. += "<small>They could never understand what this represents to you. \
+		Even if you're not the one to wear it, this holds a significance to your people long since lost on others. \
+		For it's a mark of service. The oath that the bearer of this duty is to uphold, at any cost. \
+		The utter destruction of anything that would threaten Astrata, the Tyrant's, order.</small>"
