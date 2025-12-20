@@ -26,7 +26,6 @@
 		/datum/skill/combat/unarmed = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/swimming = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/athletics = SKILL_LEVEL_JOURNEYMAN, 
-		/datum/skill/combat/wrestling = SKILL_LEVEL_JOURNEYMAN, 
 		/datum/skill/misc/climbing = SKILL_LEVEL_EXPERT,
 		/datum/skill/misc/reading = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/misc/riding = SKILL_LEVEL_JOURNEYMAN,
@@ -43,12 +42,8 @@
 	)
 	extra_context = "This subclass is race-limited to: Dark Elves Only."
 	
-	if(H.gender == "female")
-		ADD_TRAIT(H, TRAIT_DEATHBYSNUSNU, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC) // female drow have a certain stereotype
-	else if(H.gender == "male")
-		H.change_stat(STATKEY_STR, -1)
-		H.change_stat(STATKEY_LCK, 1) 
+
+
 /datum/outfit/job/roguetown/mercenary/crocs/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
@@ -70,7 +65,7 @@
 	backr = /obj/item/rogueweapon/shield/tower/spidershield
 	beltr = /obj/item/rogueweapon/whip/spiderwhip
 	beltl = /obj/item/rope/chain
-
+	
 	if(H.mind)
 		var/riding = list("I'm a spider rider (your pet with you)", "I walk on my legs (+1 for athletics)")
 		var/ridingchoice = input(H, "Choose your faith", "FAITH") as anything in riding
@@ -79,6 +74,18 @@
 				l_hand = /obj/item/bait/spider
 			if("I prefer to be on foot (+1 for athletics)")
 				H.adjust_skillrank_up_to(/datum/skill/misc/athletics, SKILL_LEVEL_EXPERT, TRUE)
+
+	if(H.gender == FEMALE)
+		ADD_TRAIT(H, TRAIT_DEATHBYSNUSNU, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC) // female drow have a certain stereotype
+	
+	if(H.gender == MALE)
+		H.change_stat(STATKEY_STR, -1)
+		H.change_stat(STATKEY_LCK, 1) 
+
+	if(H.age == AGE_OLD)
+		ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC) // YEARS of experience
+	
 
 	H.merctype = 15
 
