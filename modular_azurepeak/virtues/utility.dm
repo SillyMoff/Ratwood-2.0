@@ -345,4 +345,71 @@
 	custom_text = "Prevents you from experiencing negative stress events when looking at select species."
 	added_traits = list(TRAIT_TOLERANT)
 
+// Apprentice-level virtues - provide broad skill sets without traits or items
+// Max skill level is Apprentice (level 2), allowing varied work without full progression
+
+/datum/virtue/utility/survivalist_novice
+	name = "Novice Survivalist"
+	desc = "I've lived in the wilds and learned to survive off the land. I can hunt, track, fish, trap, and butcher game - all the skills needed to live beyond civilization's walls."
+	added_skills = list(
+		list(/datum/skill/misc/tracking, 1, 2),
+		list(/datum/skill/labor/butchering, 1, 2),
+		list(/datum/skill/craft/tanning, 1, 2),
+		list(/datum/skill/craft/traps, 1, 2),
+		list(/datum/skill/combat/staves, 1, 2),
+		list(/datum/skill/combat/slings, 1, 2),
+		list(/datum/skill/craft/crafting, 1, 2),
+		list(/datum/skill/craft/cooking, 1, 2),
+		list(/datum/skill/labor/lumberjacking, 1, 2),
+		list(/datum/skill/misc/climbing, 1, 2),
+		list(/datum/skill/misc/swimming, 1, 2),
+		list(/datum/skill/misc/sneaking, 1, 2),
+		list(/datum/skill/misc/medicine, 1, 1)
+	)
+
+/datum/virtue/utility/homesteader_novice
+	name = "Novice Homesteader"
+	desc = "I know how to maintain a homestead - farming the land, cooking meals, chopping wood, and all the daily labors needed to be self-sufficient."
+	added_skills = list(
+		list(/datum/skill/labor/farming, 1, 2),
+		list(/datum/skill/craft/cooking, 1, 2),
+		list(/datum/skill/labor/lumberjacking, 1, 2),
+		list(/datum/skill/misc/lockpicking, 1, 2),
+		list(/datum/skill/misc/climbing, 1, 2),
+		list(/datum/skill/misc/athletics, 1, 2),
+		list(/datum/skill/labor/fishing, 1, 2),
+		list(/datum/skill/craft/masonry, 1, 2),
+		list(/datum/skill/craft/carpentry, 1, 2),
+		list(/datum/skill/craft/crafting, 1, 2),
+		list(/datum/skill/combat/maces, 1, 2),
+		list(/datum/skill/combat/axes, 1, 2)
+	)
+
+/datum/virtue/utility/artisan_novice
+	name = "Novice Artisan"
+	desc = "I've learned the fundamentals of crafting - working with metal, fabric, and clay. I'm a jack of all trades in the workshop, though master of none."
+	added_skills = list(
+		list(/datum/skill/craft/crafting, 1, 2),
+		list(/datum/skill/craft/blacksmithing, 1, 2),
+		list(/datum/skill/craft/sewing, 1, 2),
+		list(/datum/skill/craft/smelting, 1, 2),
+		list(/datum/skill/craft/weaponsmithing, 1, 2),
+		list(/datum/skill/craft/armorsmithing, 1, 2),
+		list(/datum/skill/combat/knives, 1, 2),
+		list(/datum/skill/craft/ceramics, 1, 2),
+		list(/datum/skill/craft/engineering, 1, 2)
+	)
+
+/datum/virtue/utility/healer_novice
+	name = "Novice Healer"
+	desc = "I've studied the healing arts - tending wounds, brewing remedies, and understanding the basics of medicine and alchemy."
+	added_skills = list(
+		list(/datum/skill/misc/medicine, 1, 2),
+		list(/datum/skill/craft/alchemy, 1, 2),
+		list(/datum/skill/misc/reading, 1, 2),
+		list(/datum/skill/craft/crafting, 1, 2),
+		list(/datum/skill/craft/sewing, 1, 2),
+		list(/datum/skill/craft/cooking, 1, 2),
+		list(/datum/skill/combat/knives, 1, 2)
+	)
 

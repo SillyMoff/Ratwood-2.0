@@ -575,29 +575,7 @@ BLIND     // can't see anything
 	//This makes it appear darker than the rest of examine text. Draws the cursor to it like to a link.
 	examine_text = "<font color = '#808080'>[examine_text]</font>"
 	// Make the armor info clickable; clicking prints full details to chat
-	return "<a href='byond://?src=\\ref[src];show_examine=1'>[str]</a>"
-
-// Simplified ratings string for inline examine
-/obj/item/clothing/proc/get_simplified_armor_string()
-	if(!armor)
-		return ""
-	if(armor.getRating("slash") == 0 && armor.getRating("stab") == 0 && armor.getRating("blunt") == 0 && armor.getRating("piercing") == 0)
-		return ""
-	return "BLUNT [armor.blunt] | SLASH [armor.slash] | STAB [armor.stab] | PIERCE [armor.piercing]"
-
-// Inline overview for examine: name, desc, simplified ratings
-/obj/item/clothing/proc/get_examine_overview(mob/user)
-	var/list/parts = list()
-	if(name)
-		// Make item name clickable; clicking prints full details to chat
-		parts += "<a href='byond://?src=\\ref[src];show_examine=1'>[name]</a>"
-	var/examine_text = get_examine_string(user)
-	if(examine_text && length(examine_text))
-		parts += "[examine_text]"
-	var/simplified = get_simplified_armor_string()
-	if(simplified && length(simplified))
-		parts += simplified
-	return jointext(parts, " — ")
+	return "<a href='byond://?src=\ref[src];show_examine=1'>[str]</a>"
 
 // Build the detailed examine string for chat output
 /obj/item/clothing/proc/build_examine_detail(mob/user, showcrits)

@@ -405,7 +405,7 @@
 			. += span_userdanger("<a href='?src=[REF(src)];task=bloodpoolinfo;'>Vitae: [(mind && !clan) ? (bloodpool * CLIENT_VITAE_MULTIPLIER) : bloodpool]; Blood: [blood_volume]</a>")
 
 	if(wear_shirt && !(SLOT_SHIRT in obscured))
-		var/str = "[m3] [wear_shirt.get_examine_overview(user)]. "
+		var/str = "[m3] [wear_shirt.get_examine_string(user)]. "
 		str += "[wear_shirt.integrity_check(is_smart)]"
 		if(is_stupid)
 			str = "[m3] some kind of shirt!"
@@ -419,7 +419,7 @@
 			var/obj/item/clothing/under/U = wear_pants
 			if(U.attached_accessory)
 				accessory_msg += " with [icon2html(U.attached_accessory, user)] \a [U.attached_accessory]"
-		var/str = "[m3] [wear_pants.get_examine_overview(user)][accessory_msg]. "
+		var/str = "[m3] [wear_pants.get_examine_string(user)][accessory_msg]. "
 		if(!wear_armor)
 			str += wear_pants.integrity_check(is_smart)
 		if(is_stupid)
@@ -429,7 +429,7 @@
 
 	//head
 	if(head && !(SLOT_HEAD in obscured))
-		var/str = "[m3] [head.get_examine_overview(user)] on [m2] head. "
+		var/str = "[m3] [head.get_examine_string(user)] on [m2] head. "
 		str += head.integrity_check(is_smart)
 		if(is_stupid)
 			if(istype(head,/obj/item/clothing/head/roguetown/helmet))
@@ -440,7 +440,7 @@
 
 	//suit/armor
 	if(wear_armor && !(SLOT_ARMOR in obscured))
-		var/str = "[m3] [wear_armor.get_examine_overview(user)]. "
+		var/str = "[m3] [wear_armor.get_examine_string(user)]. "
 		if(is_smart || is_normal)
 			str += wear_armor.integrity_check(elaborate = TRUE)
 		else if (is_stupid)
@@ -469,7 +469,7 @@
 		var/str
 		if(istype(cloak, /obj/item/clothing))
 			var/obj/item/clothing/CL = cloak
-			str = "[m3] [CL.get_examine_overview(user)] on [m2] shoulders. "
+			str = "[m3] [CL.get_examine_string(user)] on [m2] shoulders. "
 		else
 			str = "[m3] [cloak.get_examine_string(user)] on [m2] shoulders. "
 		str += cloak.integrity_check(is_smart)
@@ -500,7 +500,7 @@
 	var/datum/component/forensics/FR = GetComponent(/datum/component/forensics)
 	//gloves
 	if(gloves && !(SLOT_GLOVES in obscured))
-		var/str = "[m3] [gloves.get_examine_overview(user)] on [m2] hands. "
+		var/str = "[m3] [gloves.get_examine_string(user)] on [m2] hands. "
 		str += gloves.integrity_check(is_smart)
 		if(is_stupid)
 			str = "[m3] a pair of gloves of some kind!"
@@ -533,7 +533,7 @@
 
 	//shoes
 	if(shoes && !(SLOT_SHOES in obscured))
-		var/str = "[m3] [shoes.get_examine_overview(user)] on [m2] feet. "
+		var/str = "[m3] [shoes.get_examine_string(user)] on [m2] feet. "
 		str += shoes.integrity_check(is_smart)
 		if(is_stupid)
 			str = "[m3] some shoes on [m2] feet!"
@@ -541,7 +541,7 @@
 
 	//mask
 	if(wear_mask && !(SLOT_WEAR_MASK in obscured))
-		var/str = "[m3] [wear_mask.get_examine_overview(user)] on [m2] face. "
+		var/str = "[m3] [wear_mask.get_examine_string(user)] on [m2] face. "
 		str += wear_mask.integrity_check(is_smart)
 		if(is_stupid)
 			str = "[m3] some kinda thing on [m2] face!"
@@ -552,7 +552,7 @@
 		var/str
 		if(istype(mouth, /obj/item/clothing))
 			var/obj/item/clothing/CM = mouth
-			str = "[m3] [CM.get_examine_overview(user)] in [m2] mouth. "
+			str = "[m3] [CM.get_examine_string(user)] in [m2] mouth. "
 		else
 			"[m3] [mouth.get_examine_string(user)] in [m2] mouth. "
 		str += mouth.integrity_check(is_smart)
@@ -562,7 +562,7 @@
 
 	//neck
 	if(wear_neck && !(SLOT_NECK in obscured))
-		var/str = "[m3] [wear_neck.get_examine_overview(user)] around [m2] neck. "
+		var/str = "[m3] [wear_neck.get_examine_string(user)] around [m2] neck. "
 		str += wear_neck.integrity_check(is_smart)
 		if (is_stupid)
 			str = "[m3] something on [m2] neck!"
@@ -581,7 +581,7 @@
 
 	//ID
 	if(wear_ring && !(SLOT_RING in obscured))
-		var/str = "[wear_ring.get_examine_overview(user)] on [m2] hands. "
+		var/str = "[wear_ring.get_examine_string(user)] on [m2] hands. "
 		if(is_smart && istype(wear_ring, /obj/item/clothing/ring/active))
 			var/obj/item/clothing/ring/active/AR = wear_ring
 			if(AR.cooldowny)
@@ -595,7 +595,7 @@
 
 	//wrists
 	if(wear_wrists && !(SLOT_WRISTS in obscured))
-		var/str = "[m3] [wear_wrists.get_examine_overview(user)] on [m2] wrists."
+		var/str = "[m3] [wear_wrists.get_examine_string(user)] on [m2] wrists."
 		str += wear_wrists.integrity_check(is_smart)
 		if (is_stupid)
 			str = "[m3] something on [m2] wrists!"
