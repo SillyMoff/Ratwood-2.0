@@ -279,8 +279,6 @@
 	desc = "A suit of ornate plate armor, noble in both presentation and protection. Such resplendent maille is traditionally reserved for the higher echelons of nobility; seasoned knights, venerated kings, and pot-bellied councilmen that wish to flaunt their opulence towards the unwashed masses."
 	icon_state = "ornateplate"
 
-	max_integrity = ARMOR_INT_CHEST_PLATE_STEEL
-
 /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate
 	name = "psydonic plate"
 	desc = "A suit of beautiful plate armor, meticulously fluted with blessed silver. This design's origins lay in the hands of a legendary armorsmith, who sought to mimic the heavenly maille that Psydon's angels once wore. </br>'..the refusal of despair, and the resolve to defend Psydonia in its darkest hour..'"

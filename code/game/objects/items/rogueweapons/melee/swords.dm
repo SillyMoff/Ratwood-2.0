@@ -2127,3 +2127,20 @@
 				return list("shrink" = 0.4,"sx" = 3,"sy" = 4,"nx" = -1,"ny" = 4,"wx" = -8,"wy" = 3,"ex" = 7,"ey" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 15,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
 			if("onbelt")
 				return list("shrink" = 0.4,"sx" = -4,"sy" = -6,"nx" = 5,"ny" = -6,"wx" = 0,"wy" = -6,"ex" = -1,"ey" = -6,"nturn" = 100,"sturn" = 156,"wturn" = 90,"eturn" = 180,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+
+//Elven weapons sprited and added by Jam
+/obj/item/rogueweapon/sword/short/elf
+	name = "elven shortsword"
+	desc = "This flowing sword is of classic elven design."
+	icon_state = "elfsword"
+	sellprice = 40
+	sheathe_icon = "elfsword"
+
+/obj/item/rogueweapon/sword/long/elf
+	name = "elven longsword"
+	desc = "This mighty flowing sword is of classic elven design."
+	icon = 'icons/roguetown/weapons/64.dmi'
+	icon_state = "elflongsword"
+	sellprice = 50
+	sheathe_icon = "elfsword"

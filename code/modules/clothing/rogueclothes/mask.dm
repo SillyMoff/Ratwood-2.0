@@ -375,6 +375,7 @@
 	icon_state = "psydonmask"
 	item_state = "psydonmask"
 
+/*
 /obj/item/clothing/mask/rogue/facemask/prisoner
 	name = "cursed mask"
 	icon_state = "cursemask"
@@ -434,6 +435,7 @@
 		addtimer(CALLBACK(src, PROC_REF(timerup), user), timer)
 		say("YOUR PENANCE WILL BE COMPLETE IN [timer_minutes] MINUTES.")
 	return
+*/
 
 /obj/item/clothing/mask/rogue/facemask/steel
 	name = "steel mask"

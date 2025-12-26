@@ -1607,3 +1607,26 @@
 		added_int = 0,\
 		added_def = 0,\
 	)
+
+
+//Elven weapons sprited and added by Jam
+
+/obj/item/rogueweapon/greatsword/elf
+	possible_item_intents = list(/datum/intent/sword/chop,/datum/intent/sword/strike) //bash is for nonlethal takedowns, only targets limbs
+	// Design Intent: It is pretty purely a two-handed weapon. In one hand it's a bit clumsy.
+	gripped_intents = list(/datum/intent/sword/cut/zwei, /datum/intent/rend, /datum/intent/sword/thrust/zwei, /datum/intent/sword/strike/bad)
+	alt_intents = list(null)//can't be alt-gripped. Ought to compensate for that.
+	name = "elven curveblade"
+	desc = "The Elven Curveblade is a traditional weapon, its practice as much a dance as a method of death. Flowing like the water's current, let its path lead to your enemy's throat."
+	icon_state = "elfcurveblade"
+	wlength = WLENGTH_LONG//less reach than greatsword!
+	minstr = 7//lighter
+	wdefense = 8//better defence than greatsword
+	sellprice = 60
+
+
+/obj/item/rogueweapon/spear/naginata/elf
+	name = "elven swordspear"
+	desc = "An elven weapon that combines the elegant sweeping blade typical of elven design with a lengthy handle. The true guardian of the forest realm."
+	icon_state = "elfglaive"
+	sellprice = 60

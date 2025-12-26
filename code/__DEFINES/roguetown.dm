@@ -378,7 +378,7 @@ GLOBAL_LIST_EMPTY(round_join_times)
 #define CLASS_CAT_ETRUSCA "Etrusca"
 #define CLASS_CAT_GRENZELHOFT "Grenzelhoft"
 #define CLASS_CAT_NALEDI "Naledi"
-#define CLASS_CAT_RANESHENI "Ranesheni"
+#define CLASS_CAT_ZYBANTU "Zybantu"
 #define CLASS_CAT_AAVNR "Aavnr"
 #define CLASS_CAT_GRONN "Gronn"
 #define CLASS_CAT_OTAVA "Otava"

@@ -167,8 +167,12 @@
 	bundletype = /obj/item/natural/bundle/cloth
 	sellprice = 4
 	var/wet = 0
-	/// Effectiveness when used as a bandage, how much bloodloss we can staunch
-	var/bandage_effectiveness = 0.9
+	/// Effectiveness when used as a bandage, how much it'll lower the bloodloss, bloodloss will get multiplied by this.
+	var/bandage_effectiveness = 0.5 
+	var/bandage_speed = 7 SECONDS
+	///How much you can bleed into the bandage until it needs to be changed
+	var/bandage_health = 150 //75 total blood stopped
+	//bandage_health * (1 - bandage_effectiveness) = total amount of blood saved from one bandage
 
 /obj/item/natural/cloth/Initialize()
 	. = ..()
@@ -264,6 +268,7 @@
 /obj/item/natural/cloth/wash_act()
 	. = ..()
 	wet = 10
+	bandage_health = initial(bandage_health)
 
 /obj/item/natural/cloth/proc/bandage(mob/living/M, mob/user)
 	if(!M.can_inject(user, TRUE))
@@ -277,8 +282,8 @@
 	if(affecting.bandage)
 		to_chat(user, span_warning("There is already a bandage."))
 		return
-	var/used_time = 70
-	used_time -= (H.get_skill_level(/datum/skill/misc/medicine) * 10)
+	var/used_time = bandage_speed
+	used_time -= ((user.get_skill_level(/datum/skill/misc/medicine) * 0.15) * bandage_speed) //15% time reduction per level
 	playsound(loc, 'sound/foley/bandage.ogg', 100, FALSE)
 	if(!do_mob(user, M, used_time))
 		return
