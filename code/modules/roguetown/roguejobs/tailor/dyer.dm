@@ -150,7 +150,7 @@ var/global/list/pridelist = list(
 		dat += "<A href='?src=\ref[src];paint_altdetail=1'>Apply new color</A> | "
 		dat += "<A href='?src=\ref[src];clear_altdetail=1'>Remove paintjob</A><BR><BR>"
 
-
+	dat += "<A href='?src=\ref[src];eject=1'>Eject item.</A><BR><BR>"
 	menu.set_content("<html>[dat.Join("")]</html>")
 	menu.open()
 
@@ -287,6 +287,13 @@ var/global/list/pridelist = list(
 		inserted_item.altdetail_color = "#FFFFFF"
 		inserted_item.update_icon()
 		playsound(src, "bubbles", 50, 1)
+		inserted.forceMove(drop_location())
+		inserted = null
+		interact(usr)
+
+	if(href_list["eject"])
+		if(!inserted)
+			return
 		inserted.forceMove(drop_location())
 		inserted = null
 		interact(usr)
