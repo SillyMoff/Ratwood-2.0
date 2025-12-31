@@ -5042,10 +5042,11 @@
 /obj/structure/mineral_door/wood/violet{
 	locked = 1;
 	lockid = "tavern";
-	name = "Tapster's Attic"
+	name = "Tapster's Attic";
+	icon_state = "wcr"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/outdoors/town/roofs)
+/area/rogue/indoors/town)
 "bDX" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/grass,
@@ -25276,11 +25277,8 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "hEO" = (
-/obj/structure/ladder{
-	pixel_y = 13
-	},
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/outdoors/town/roofs)
+/turf/closed/wall/mineral/rogue/roofwall/innercorner/dir8,
+/area/rogue/indoors/town)
 "hEV" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood3"
@@ -33675,10 +33673,6 @@
 	},
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/church/basement)
-"kii" = (
-/obj/structure/roguewindow/openclose,
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/outdoors/town/roofs)
 "kil" = (
 /obj/item/natural/bundle/stick,
 /turf/open/floor/rogue/ruinedwood/platform,
@@ -45682,7 +45676,7 @@
 /obj/structure/closet/crate/roguecloset/inn{
 	pixel_y = 17
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/floor/carpet/inn,
 /area/rogue/indoors/town/magician{
 	name = "Mage's Tower"
 	})
@@ -63819,7 +63813,7 @@
 "tJk" = (
 /obj/item/grown/log/tree/small,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/outdoors/town/roofs)
+/area/rogue/indoors/town)
 "tJv" = (
 /obj/structure/fluff/walldeco/artificerflag,
 /turf/closed/wall/mineral/rogue/decostone/cand,
@@ -77155,12 +77149,6 @@
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/mountains)
-"xVT" = (
-/obj/structure/roguewindow/openclose{
-	dir = 1
-	},
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/outdoors/town/roofs)
 "xVY" = (
 /turf/closed/wall/mineral/rogue/roofwall/outercorner{
 	dir = 8
@@ -581986,10 +581974,10 @@ xvv
 fHB
 urX
 fjX
-gxc
-gft
-gft
-krf
+oLL
+gqM
+gqM
+lDN
 jqs
 fZJ
 fZJ
@@ -582418,10 +582406,10 @@ yky
 urh
 lCO
 fjX
-col
+cbg
 oTD
 oTD
-lHE
+eWn
 jqs
 fZJ
 fZJ
@@ -582834,11 +582822,11 @@ fZJ
 fZJ
 fZJ
 fjX
-gxc
-gft
-gft
-gft
-krf
+oLL
+gqM
+gqM
+gqM
+lDN
 sCJ
 mxk
 aEd
@@ -582850,10 +582838,10 @@ yky
 mcH
 lCO
 fjX
-col
+cbg
 oTD
 oTD
-lHE
+eWn
 jqs
 fZJ
 fZJ
@@ -583266,11 +583254,11 @@ fZJ
 fZJ
 hox
 dld
-col
+cbg
 tPo
 lQe
 fcL
-lHE
+eWn
 iJC
 iJC
 iJC
@@ -583282,10 +583270,10 @@ aVy
 jVs
 gHt
 fjX
-col
+cbg
 oTD
 oTD
-lHE
+eWn
 jqs
 fZJ
 fZJ
@@ -583698,7 +583686,7 @@ fZJ
 fZJ
 fjX
 rZi
-col
+cbg
 nuS
 eBW
 eBW
@@ -583714,10 +583702,10 @@ tRh
 jqs
 fZJ
 fjX
-col
+cbg
 eBW
 eBW
-lHE
+eWn
 jqs
 fZJ
 fZJ
@@ -584130,11 +584118,11 @@ fZJ
 fZJ
 fjX
 rZi
-col
+cbg
 xre
 xij
 xre
-lHE
+eWn
 iJC
 iJC
 iJC
@@ -584146,10 +584134,10 @@ eZx
 jqs
 fZJ
 fjX
-col
+cbg
 oTD
 oTD
-lHE
+eWn
 jqs
 fZJ
 fZJ
@@ -584562,26 +584550,26 @@ fZJ
 fZJ
 fjX
 rZi
-col
+cbg
 tdk
 eBW
 tdk
-lHE
+eWn
 iJC
 iJC
 iJC
 tRh
-gxc
-gft
-gft
-krf
+oLL
+gqM
+gqM
+lDN
 jqs
 hox
 dld
-col
+cbg
 eBW
 eBW
-lHE
+eWn
 jqs
 fZJ
 fZJ
@@ -584994,26 +584982,26 @@ fZJ
 fZJ
 ptX
 feh
-col
+cbg
 lyO
 eBW
 eBW
-lHE
+eWn
 kzz
 kzz
 kzz
 tRh
-col
+cbg
 oTD
 oTD
-lHE
+eWn
 jqs
 fjX
 rZi
-col
+cbg
 eBW
 oTD
-lHE
+eWn
 jqs
 fZJ
 fZJ
@@ -585426,26 +585414,26 @@ fZJ
 fZJ
 fZJ
 fjX
-col
+cbg
 mmb
 eBW
 tdk
-lHE
+eWn
 qlC
 qlC
 qlC
 tRh
-col
+cbg
 oTD
 oTD
-xVT
+eRu
 jqs
 fjX
 rZi
-vjf
-lwY
-lwY
-orm
+pNY
+tvA
+tvA
+cGv
 jqs
 fZJ
 fZJ
@@ -585858,19 +585846,19 @@ fZJ
 fZJ
 fZJ
 fjX
-vjf
-lwY
-lwY
-lwY
-orm
+pNY
+tvA
+tvA
+tvA
+cGv
 iJk
 iJk
 iJk
 tRh
-col
+cbg
 oTD
 oTD
-lHE
+eWn
 jqs
 ptX
 vdf
@@ -585889,9 +585877,9 @@ fZJ
 kNH
 vdf
 vdf
-gxc
-gft
-krf
+oLL
+gqM
+lDN
 fjX
 fZJ
 fZJ
@@ -586299,10 +586287,10 @@ iJk
 iJk
 iJk
 tRh
-vjf
-lwY
-lwY
-orm
+pNY
+tvA
+tvA
+cGv
 jqs
 fZJ
 fZJ
@@ -586319,11 +586307,11 @@ fZJ
 fZJ
 fZJ
 jqs
-gxc
-gft
-nZd
+oLL
+gqM
 hEO
-lHE
+sKK
+eWn
 fjX
 fZJ
 fZJ
@@ -586751,11 +586739,11 @@ fZJ
 fZJ
 fZJ
 jqs
-col
+cbg
 tJk
-vwM
-vwM
-lHE
+eBW
+eBW
+eWn
 fjX
 fZJ
 fZJ
@@ -587183,11 +587171,11 @@ fZJ
 fZJ
 fZJ
 jqs
-kii
-vwM
-vwM
+rqu
+eBW
+eBW
 tJk
-lHE
+eWn
 fjX
 fZJ
 fZJ
@@ -587615,11 +587603,11 @@ fZJ
 fZJ
 fZJ
 jqs
-vjf
-lwY
-lwY
-lwY
-orm
+pNY
+tvA
+tvA
+tvA
+cGv
 fjX
 fZJ
 fZJ
