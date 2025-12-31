@@ -76537,12 +76537,12 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town)
 "xLR" = (
-/obj/item/clothing/cloak/tabard/knight/guard,
-/obj/item/clothing/cloak/tabard/knight/guard,
-/obj/item/clothing/cloak/tabard/knight/guard,
-/obj/item/clothing/cloak/tabard/knight/guard,
-/obj/item/clothing/cloak/tabard/knight/guard,
 /obj/structure/rack/rogue/shelf/biggest,
+/obj/item/clothing/cloak/tabard/retinue,
+/obj/item/clothing/cloak/tabard/retinue,
+/obj/item/clothing/cloak/tabard/retinue,
+/obj/item/clothing/cloak/tabard/retinue,
+/obj/item/clothing/cloak/tabard/retinue,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/town/basement/keep)
 "xLX" = (
