@@ -69,6 +69,12 @@
 			to_chat(user, span_warning("I need a holy [initial(temp_structure.name)] near [target]."))
 			revert_cast()
 			return FALSE
+		var/mob/living/carbon/spirit/underworld_spirit = target.get_spirit()
+		if(underworld_spirit)
+			var/mob/dead/observer/ghost = underworld_spirit.ghostize()
+			qdel(underworld_spirit)
+			ghost.mind.transfer_to(target, TRUE)
+		target.grab_ghost(force = TRUE)
 		if(!target.check_revive(user))
 			revert_cast()
 			return FALSE
@@ -79,21 +85,11 @@
 			)
 			target.gib()
 			return TRUE
-		if(alert(target, "They are calling for you. Are you ready?", "Revival", "I need to wake up", "Don't let me go") != "I need to wake up")
-			target.visible_message(span_notice("Nothing happens. They are not being let go."))
-			return FALSE
 		target.adjustOxyLoss(-target.getOxyLoss()) //Ye Olde CPR
 		if(!target.revive(full_heal = FALSE))
 			to_chat(user, span_warning("Nothing happens."))
 			revert_cast()
 			return FALSE
-		var/mob/living/carbon/spirit/underworld_spirit = target.get_spirit()
-		//GET OVER HERE!
-		if(underworld_spirit)
-			var/mob/dead/observer/ghost = underworld_spirit.ghostize()
-			qdel(underworld_spirit)
-			ghost.mind.transfer_to(target, TRUE)
-		target.grab_ghost(force = TRUE) // even suicides
 		target.emote("breathgasp")
 		target.Jitter(100)
 		target.update_body()
