@@ -51,4 +51,4 @@
 	name = "Vampire Wings"
 	accessory_type = /datum/sprite_accessory/wings/large/gargoyle
 	/// Flight datum
-	var/datum/action/item_action/organ_action/use/flight/fly
+	// var/datum/action/item_action/organ_action/use/flight/fly // Parent object created in porting harpies

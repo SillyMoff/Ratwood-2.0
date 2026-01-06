@@ -81,6 +81,7 @@ Balloon Alert / Floating Text defines
 	/datum/species/akula,\
 	/datum/species/anthromorph,\
 	/datum/species/demihuman,\
+	/datum/species/harpy,\
 
 #define RACES_SHUNNED \
 	/datum/species/anthromorphsmall,\
@@ -89,6 +90,7 @@ Balloon Alert / Floating Text defines
 	/datum/species/halforc,\
 	/datum/species/lamia,\
 	/datum/species/goblinp,\
+	/datum/species/harpy,\
 
 #define RACES_DESPISED \
 	/datum/species/dullahan,\
@@ -147,6 +149,7 @@ Balloon Alert / Floating Text defines
 	/datum/species/anthromorph,\
 	/datum/species/anthromorphsmall,\
 	/datum/species/demihuman,\
+	/datum/species/harpy,\
 	/datum/species/halforc,\
 	/datum/species/orc,\
 	/datum/species/kobold,\
@@ -174,6 +177,7 @@ Balloon Alert / Floating Text defines
 	/datum/species/anthromorph,\
 	/datum/species/demihuman,\
 	/datum/species/halforc,\
+	/datum/species/harpy,\
 	/datum/species/construct/metal,\
 	/datum/species/dullahan,\
 	/datum/species/lamia,\
@@ -193,6 +197,7 @@ Balloon Alert / Floating Text defines
 	/datum/species/anthromorph,\
 	/datum/species/demihuman,\
 	/datum/species/construct/metal,\
+	/datum/species/harpy,\
 	/datum/species/dullahan,\
 	/datum/species/lamia,\
 )
