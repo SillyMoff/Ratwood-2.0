@@ -139,6 +139,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/cinematic,
 //	/client/proc/cmd_admin_add_freeform_ai_law,
 	/client/proc/object_say,
+	/client/proc/force_say,
 	/client/proc/toggle_random_events,
 	/client/proc/set_ooc,
 	/client/proc/reset_ooc,
@@ -746,6 +747,33 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	log_admin("[key_name(usr)] made [O] at [AREACOORD(O)] say \"[message]\"")
 	message_admins(span_adminnotice("[key_name_admin(usr)] made [O] at [AREACOORD(O)]. say \"[message]\""))
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Object Say") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/force_say(mob/living/L in GLOB.mob_list)
+	set category = "-Special Verbs-"
+	set name = "Force Say"
+	set desc = ""
+	
+	if(!L)
+		to_chat(usr, span_warning("No mob selected."))
+		return
+	
+	if(!isliving(L))
+		to_chat(usr, span_warning("Target must be a living mob."))
+		return
+	
+	if(!L.loc)
+		to_chat(usr, span_warning("Target mob has no location."))
+		return
+	
+	var/message = input(usr, "What do you want them to say?", "Force Say") as text | null
+	if(!message)
+		return
+	
+	L.say(message)
+	log_admin("[key_name(usr)] forced [key_name(L)] at [AREACOORD(L)] to say \"[message]\"")
+	message_admins(span_adminnotice("[key_name_admin(usr)] forced [key_name_admin(L)] at [AREACOORD(L)] to say \"[message]\""))
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Force Say") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 /client/proc/togglebuildmodeself()
 	set name = "Toggle Build Mode"
 	set category = "-Special Verbs-"

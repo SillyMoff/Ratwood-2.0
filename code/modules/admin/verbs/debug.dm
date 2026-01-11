@@ -248,8 +248,13 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	var/selected_job_path = GLOB.loadout_selected_jobs[REF(H)]
 	var/selected_job_title = "None"
 	if(selected_job_path)
-		var/datum/job/J = selected_job_path
-		selected_job_title = initial(J.title)
+		// Check if it's a migrant role or regular job
+		if(ispath(selected_job_path, /datum/migrant_role))
+			var/datum/migrant_role/MR = selected_job_path
+			selected_job_title = initial(MR.name)
+		else
+			var/datum/job/J = selected_job_path
+			selected_job_title = initial(J.title)
 	var/selected_advclass_path = GLOB.loadout_selected_advclasses[REF(H)]
 	var/selected_advclass_name = "None"
 	if(selected_advclass_path)
@@ -310,6 +315,16 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 				if(job_title && (job_outfit || job_subclasses))
 					job_list[job_title] = job_type
 			
+			// Add all migrant roles
+			for(var/migrant_type in subtypesof(/datum/migrant_role))
+				var/datum/migrant_role/MR = migrant_type
+				var/migrant_name = initial(MR.name)
+				var/migrant_outfit = initial(MR.outfit)
+				var/migrant_advclass = initial(MR.advclass_cat_rolls)
+				// Include migrant roles with outfit OR advclass system
+				if(migrant_name && (migrant_outfit || migrant_advclass) && migrant_name != "MIGRANT ROLE")
+					job_list["[migrant_name] (Migrant)"] = migrant_type
+			
 			// Sort jobs, then add Search at the top
 			var/list/all_jobs = list("Search..." = "search") + sortList(job_list)
 			var/selected_title = input("Select job:", "Job Selection") as null|anything in all_jobs
@@ -334,6 +349,16 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 					// Include jobs with outfit OR jobs with advclass system
 					if(job_title && (job_outfit || job_subclasses))
 						searchable_jobs[job_title] = job_type
+				
+				// Add all migrant roles
+				for(var/migrant_type in subtypesof(/datum/migrant_role))
+					var/datum/migrant_role/MR = migrant_type
+					var/migrant_name = initial(MR.name)
+					var/migrant_outfit = initial(MR.outfit)
+					var/migrant_advclass = initial(MR.advclass_cat_rolls)
+					// Include migrant roles with outfit OR advclass system
+					if(migrant_name && (migrant_outfit || migrant_advclass) && migrant_name != "MIGRANT ROLE")
+						searchable_jobs["[migrant_name] (Migrant)"] = migrant_type
 				
 				// Filter by search term
 				var/list/matching_jobs = list()
@@ -362,24 +387,55 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 				H.mind.assigned_role = selected_title
 				
 				// Auto-select advclass if job has only one, or open selection if multiple
-				var/datum/job/job_datum = new job_type_path()
-				if(job_datum.job_subclasses && length(job_datum.job_subclasses))
-					if(length(job_datum.job_subclasses) == 1)
-						GLOB.loadout_selected_advclasses[REF(H)] = job_datum.job_subclasses[1]
-						var/datum/advclass/AC = job_datum.job_subclasses[1]
-						to_chat(usr, span_notice("Auto-selected advclass: [initial(AC.name)]"))
-					else
-						// Multiple advclasses - open selection automatically
+				// Check if it's a migrant role with advclass_cat_rolls
+				if(ispath(job_type_path, /datum/migrant_role))
+					var/datum/migrant_role/migrant_datum = new job_type_path()
+					if(migrant_datum.advclass_cat_rolls && length(migrant_datum.advclass_cat_rolls))
+						// Get advclasses matching the category tags
 						var/list/advclass_choices = list()
-						for(var/advclass_path in job_datum.job_subclasses)
-							var/datum/advclass/AC = advclass_path
-							advclass_choices[initial(AC.name)] = advclass_path
+						for(var/advclass_type in subtypesof(/datum/advclass))
+							var/datum/advclass/AC = advclass_type
+							var/list/ac_tags = initial(AC.category_tags)
+							if(!ac_tags)
+								continue
+							for(var/cat_tag in migrant_datum.advclass_cat_rolls)
+								if(cat_tag in ac_tags)
+									advclass_choices[initial(AC.name)] = advclass_type
+									break
 						
-						var/selected = input("Select advclass:", "Advclass Selection") as null|anything in sortList(advclass_choices)
-						if(selected)
-							GLOB.loadout_selected_advclasses[REF(H)] = advclass_choices[selected]
-							to_chat(usr, span_notice("Advclass selected: [selected]"))
-				qdel(job_datum)
+						if(length(advclass_choices) == 0)
+							to_chat(usr, span_warning("No advclasses found for this migrant role."))
+						else if(length(advclass_choices) == 1)
+							var/only_choice = advclass_choices[advclass_choices[1]]
+							GLOB.loadout_selected_advclasses[REF(H)] = only_choice
+							var/datum/advclass/AC = only_choice
+							to_chat(usr, span_notice("Auto-selected advclass: [initial(AC.name)]"))
+						else
+							// Multiple advclasses - open selection automatically
+							var/selected = input("Select advclass:", "Advclass Selection") as null|anything in sortList(advclass_choices)
+							if(selected)
+								GLOB.loadout_selected_advclasses[REF(H)] = advclass_choices[selected]
+								to_chat(usr, span_notice("Advclass selected: [selected]"))
+					qdel(migrant_datum)
+				else
+					var/datum/job/job_datum = new job_type_path()
+					if(job_datum.job_subclasses && length(job_datum.job_subclasses))
+						if(length(job_datum.job_subclasses) == 1)
+							GLOB.loadout_selected_advclasses[REF(H)] = job_datum.job_subclasses[1]
+							var/datum/advclass/AC = job_datum.job_subclasses[1]
+							to_chat(usr, span_notice("Auto-selected advclass: [initial(AC.name)]"))
+						else
+							// Multiple advclasses - open selection automatically
+							var/list/advclass_choices = list()
+							for(var/advclass_path in job_datum.job_subclasses)
+								var/datum/advclass/AC = advclass_path
+								advclass_choices[initial(AC.name)] = advclass_path
+							
+							var/selected = input("Select advclass:", "Advclass Selection") as null|anything in sortList(advclass_choices)
+							if(selected)
+								GLOB.loadout_selected_advclasses[REF(H)] = advclass_choices[selected]
+								to_chat(usr, span_notice("Advclass selected: [selected]"))
+					qdel(job_datum)
 			else
 				// Regular job selected
 				var/job_type_path = all_jobs[selected_title]
@@ -393,24 +449,55 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 				H.mind.assigned_role = selected_title
 				
 				// Auto-select advclass if job has only one, or open selection if multiple
-				var/datum/job/job_datum = new job_type_path()
-				if(job_datum.job_subclasses && length(job_datum.job_subclasses))
-					if(length(job_datum.job_subclasses) == 1)
-						GLOB.loadout_selected_advclasses[REF(H)] = job_datum.job_subclasses[1]
-						var/datum/advclass/AC = job_datum.job_subclasses[1]
-						to_chat(usr, span_notice("Auto-selected advclass: [initial(AC.name)]"))
-					else
-						// Multiple advclasses - open selection automatically
+				// Check if it's a migrant role with advclass_cat_rolls
+				if(ispath(job_type_path, /datum/migrant_role))
+					var/datum/migrant_role/migrant_datum = new job_type_path()
+					if(migrant_datum.advclass_cat_rolls && length(migrant_datum.advclass_cat_rolls))
+						// Get advclasses matching the category tags
 						var/list/advclass_choices = list()
-						for(var/advclass_path in job_datum.job_subclasses)
-							var/datum/advclass/AC = advclass_path
-							advclass_choices[initial(AC.name)] = advclass_path
+						for(var/advclass_type in subtypesof(/datum/advclass))
+							var/datum/advclass/AC = advclass_type
+							var/list/ac_tags = initial(AC.category_tags)
+							if(!ac_tags)
+								continue
+							for(var/cat_tag in migrant_datum.advclass_cat_rolls)
+								if(cat_tag in ac_tags)
+									advclass_choices[initial(AC.name)] = advclass_type
+									break
 						
-						var/selected = input("Select advclass:", "Advclass Selection") as null|anything in sortList(advclass_choices)
-						if(selected)
-							GLOB.loadout_selected_advclasses[REF(H)] = advclass_choices[selected]
-							to_chat(usr, span_notice("Advclass selected: [selected]"))
-				qdel(job_datum)
+						if(length(advclass_choices) == 0)
+							to_chat(usr, span_warning("No advclasses found for this migrant role."))
+						else if(length(advclass_choices) == 1)
+							var/only_choice = advclass_choices[advclass_choices[1]]
+							GLOB.loadout_selected_advclasses[REF(H)] = only_choice
+							var/datum/advclass/AC = only_choice
+							to_chat(usr, span_notice("Auto-selected advclass: [initial(AC.name)]"))
+						else
+							// Multiple advclasses - open selection automatically
+							var/selected = input("Select advclass:", "Advclass Selection") as null|anything in sortList(advclass_choices)
+							if(selected)
+								GLOB.loadout_selected_advclasses[REF(H)] = advclass_choices[selected]
+								to_chat(usr, span_notice("Advclass selected: [selected]"))
+					qdel(migrant_datum)
+				else
+					var/datum/job/job_datum = new job_type_path()
+					if(job_datum.job_subclasses && length(job_datum.job_subclasses))
+						if(length(job_datum.job_subclasses) == 1)
+							GLOB.loadout_selected_advclasses[REF(H)] = job_datum.job_subclasses[1]
+							var/datum/advclass/AC = job_datum.job_subclasses[1]
+							to_chat(usr, span_notice("Auto-selected advclass: [initial(AC.name)]"))
+						else
+							// Multiple advclasses - open selection automatically
+							var/list/advclass_choices = list()
+							for(var/advclass_path in job_datum.job_subclasses)
+								var/datum/advclass/AC = advclass_path
+								advclass_choices[initial(AC.name)] = advclass_path
+							
+							var/selected = input("Select advclass:", "Advclass Selection") as null|anything in sortList(advclass_choices)
+							if(selected)
+								GLOB.loadout_selected_advclasses[REF(H)] = advclass_choices[selected]
+								to_chat(usr, span_notice("Advclass selected: [selected]"))
+					qdel(job_datum)
 			
 			show_loadout_panel(H)
 		
@@ -460,10 +547,10 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 				to_chat(usr, span_warning("This job requires an advclass! Use 'Select Advclass' first."))
 				return TRUE
 			// Ask for confirmation
-			var/confirm = alert(usr, "Delete all current stats before applying?", "Apply Stats", "Yes", "No", "Cancel")
+			var/confirm = alert(usr, "Reset stats to baseline (with racial/stat-pack bonuses) before applying job stats?", "Apply Stats", "Reset First", "Add to Current", "Cancel")
 			if(confirm == "Cancel")
 				return TRUE
-			var/delete_existing = (confirm == "Yes")
+			var/delete_existing = (confirm == "Reset First")
 			apply_job_stats(H, job_path, delete_existing)
 			show_loadout_panel(H)
 		
@@ -554,7 +641,7 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 			show_loadout_panel(H)
 		
 		if("clean_slate")
-			if(alert(usr, "This will reset [H.name] to a blank state, removing all equipment, skills, traits, and resetting stats. Continue?", "Confirm Clean Slate", "Yes", "No") == "Yes")
+			if(alert(usr, "This will reset [H.name] to a blank state, removing all equipment, skills, examine title, traits, and resetting stats. Continue?", "Confirm Clean Slate", "Yes", "No") == "Yes")
 				clean_slate_mob(H)
 				show_loadout_panel(H)
 	
@@ -633,33 +720,48 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 	if(!ishuman(H))
 		return
 	
-	// Get outfit from job type
-	var/datum/job/JobType = job_type_path
-	var/datum/outfit/outfit_path = initial(JobType.outfit)
+	// Determine if this is a migrant role or regular job
+	var/is_migrant = FALSE
+	if(ispath(job_type_path, /datum/migrant_role))
+		is_migrant = TRUE
 	
-	var/advclass_path = GLOB.loadout_selected_advclasses[REF(H)]
-	var/datum/advclass/advclass_datum = null
-	var/datum/outfit/actual_outfit = outfit_path
+	var/datum/outfit/outfit_path = null
+	var/datum/outfit/actual_outfit = null
 	
-	// If advclass is selected, use its outfit instead
-	if(advclass_path)
-		advclass_datum = new advclass_path()
-		if(advclass_datum.outfit)
-			actual_outfit = advclass_datum.outfit
+	if(is_migrant)
+		// Get outfit from migrant role
+		var/datum/migrant_role/MR = job_type_path
+		outfit_path = initial(MR.outfit)
+		actual_outfit = outfit_path
+	else
+		// Get outfit from job type
+		var/datum/job/JobType = job_type_path
+		outfit_path = initial(JobType.outfit)
+		
+		var/advclass_path = GLOB.loadout_selected_advclasses[REF(H)]
+		var/datum/advclass/advclass_datum = null
+		actual_outfit = outfit_path
+		
+		// If advclass is selected, use its outfit instead
+		if(advclass_path)
+			advclass_datum = new advclass_path()
+			if(advclass_datum.outfit)
+				actual_outfit = advclass_datum.outfit
 	
 	// Equip the outfit if available - equipOutfit handles pre_equip and post_equip internally
 	if(actual_outfit)
 		H.equipOutfit(actual_outfit)
-	else if(!advclass_path)
-		to_chat(usr, span_warning("No outfit available for this job. You must select an advclass first."))
+	else
+		to_chat(usr, span_warning("No outfit available for this [is_migrant ? "migrant role" : "job"]."))
 	
-	// Find the corresponding job datum to apply stats/skills
+	// Find the corresponding job datum to apply stats/skills (only for regular jobs)
 	var/datum/job/job_datum = null
-	for(var/job_type in subtypesof(/datum/job))
-		var/datum/job/J = job_type
-		if(initial(J.outfit) == outfit_path || initial(J.outfit_female) == outfit_path)
-			job_datum = new job_type()
-			break
+	if(!is_migrant)
+		for(var/job_type in subtypesof(/datum/job))
+			var/datum/job/J = job_type
+			if(initial(J.outfit) == outfit_path || initial(J.outfit_female) == outfit_path)
+				job_datum = new job_type()
+				break
 	
 	// Remove old job traits before applying new ones
 	if(H.status_traits)
@@ -671,41 +773,48 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 		for(var/trait in traits_to_remove)
 			REMOVE_TRAIT(H, trait, JOB_TRAIT)
 	
-	// Apply advclass stats/skills/traits if available, otherwise use job
-	if(advclass_datum)
-		// Apply advclass stats
-		if(length(advclass_datum.subclass_stats))
-			for(var/stat in advclass_datum.subclass_stats)
-				H.change_stat(stat, advclass_datum.subclass_stats[stat])
+	// For migrant roles, equipment and stats are applied via the outfit's pre_equip
+	// For regular jobs, we need to handle advclass and job separately
+	if(!is_migrant)
+		var/advclass_path = GLOB.loadout_selected_advclasses[REF(H)]
+		var/datum/advclass/advclass_datum = null
 		
-		// Apply advclass skills
-		if(length(advclass_datum.subclass_skills))
-			for(var/skill in advclass_datum.subclass_skills)
-				H.adjust_skillrank(skill, advclass_datum.subclass_skills[skill], TRUE)
+		// Apply advclass stats/skills/traits if available, otherwise use job
+		if(advclass_path)
+			advclass_datum = new advclass_path()
+			// Apply advclass stats
+			if(length(advclass_datum.subclass_stats))
+				for(var/stat in advclass_datum.subclass_stats)
+					H.change_stat(stat, advclass_datum.subclass_stats[stat])
+			
+			// Apply advclass skills
+			if(length(advclass_datum.subclass_skills))
+				for(var/skill in advclass_datum.subclass_skills)
+					H.adjust_skillrank(skill, advclass_datum.subclass_skills[skill], TRUE)
+			
+			// Apply advclass spell points
+			if(advclass_datum.subclass_spellpoints > 0 && H.mind)
+				H.mind.adjust_spellpoints(advclass_datum.subclass_spellpoints)
+			
+			// Apply advclass traits
+			if(advclass_datum.traits_applied)
+				for(var/trait in advclass_datum.traits_applied)
+					ADD_TRAIT(H, trait, JOB_TRAIT)
+		else if(job_datum)
+			// Apply job stats
+			if(length(job_datum.job_stats))
+				for(var/stat in job_datum.job_stats)
+					H.change_stat(stat, job_datum.job_stats[stat])
+			
+			// Apply job traits
+			if(job_datum.job_traits)
+				for(var/trait in job_datum.job_traits)
+					ADD_TRAIT(H, trait, JOB_TRAIT)
 		
-		// Apply advclass spell points
-		if(advclass_datum.subclass_spellpoints > 0 && H.mind)
-			H.mind.adjust_spellpoints(advclass_datum.subclass_spellpoints)
-		
-		// Apply advclass traits
-		if(advclass_datum.traits_applied)
-			for(var/trait in advclass_datum.traits_applied)
-				ADD_TRAIT(H, trait, JOB_TRAIT)
-	else if(job_datum)
-		// Apply job stats
-		if(length(job_datum.job_stats))
-			for(var/stat in job_datum.job_stats)
-				H.change_stat(stat, job_datum.job_stats[stat])
-		
-		// Apply job traits
-		if(job_datum.job_traits)
-			for(var/trait in job_datum.job_traits)
-				ADD_TRAIT(H, trait, JOB_TRAIT)
-	
-	// Apply spells from job
-	if(job_datum && job_datum.spells && H.mind)
-		for(var/S in job_datum.spells)
-			H.mind.AddSpell(new S)
+		// Apply spells from job
+		if(job_datum && job_datum.spells && H.mind)
+			for(var/S in job_datum.spells)
+				H.mind.AddSpell(new S)
 	
 	// Apply racial bonuses for reading (elves) and engineering (constructs)
 	if(H.dna?.species)
@@ -718,6 +827,13 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 	if(job_datum && hascall(job_datum, "after_spawn"))
 		job_datum.after_spawn(H, H, TRUE)
 	
+	// Call after_spawn for migrant roles if it exists
+	if(is_migrant)
+		var/datum/migrant_role/migrant_datum = new job_type_path()
+		if(hascall(migrant_datum, "after_spawn"))
+			migrant_datum.after_spawn(H)
+		qdel(migrant_datum)
+	
 	// Clean up any advclass selection hugbox state that may have been applied
 	H.advsetup = 0
 	H.invisibility = 0
@@ -729,12 +845,19 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 	UnregisterSignal(H, COMSIG_MOVABLE_MOVED)
 	
 	// Apply examine title
-	if(job_datum)
+	if(is_migrant)
+		// For migrant roles, set the name directly
+		var/datum/migrant_role/MR = job_type_path
+		H.job = initial(MR.name)
+		H.advjob = null
+		to_chat(H, span_notice("Examine title set to: [initial(MR.name)]"))
+	else if(job_datum)
 		// Determine the appropriate gendered title
 		var/title = job_datum.title
 		if(job_datum.f_title && (H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F))
 			title = job_datum.f_title
 		H.job = title
+		var/advclass_path = GLOB.loadout_selected_advclasses[REF(H)]
 		if(advclass_path)
 			var/datum/advclass/adv_for_title = new advclass_path()
 			H.advjob = adv_for_title.name
@@ -749,21 +872,35 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 		return
 	
 	if(!H.mind)
-		to_chat(usr, span_warning("Target has no mind!"))
-		return
+		H.mind_initialize()
+		to_chat(usr, span_notice("Initialized mind for target."))
 	
-	// Get outfit from job type
-	var/datum/job/JobType = job_type_path
-	var/datum/outfit/outfit_path = initial(JobType.outfit)
+	// Determine if this is a migrant role or regular job
+	var/is_migrant = FALSE
+	if(ispath(job_type_path, /datum/migrant_role))
+		is_migrant = TRUE
 	
-	var/advclass_path = GLOB.loadout_selected_advclasses[REF(H)]
-	var/datum/outfit/actual_outfit = outfit_path
+	var/datum/outfit/outfit_path = null
+	var/datum/outfit/actual_outfit = null
 	
-	// If advclass is selected, use its outfit instead
-	if(advclass_path)
-		var/datum/advclass/advclass_datum = new advclass_path()
-		if(advclass_datum.outfit)
-			actual_outfit = advclass_datum.outfit
+	if(is_migrant)
+		// Get outfit from migrant role
+		var/datum/migrant_role/MR = job_type_path
+		outfit_path = initial(MR.outfit)
+		actual_outfit = outfit_path
+	else
+		// Get outfit from job type
+		var/datum/job/JobType = job_type_path
+		outfit_path = initial(JobType.outfit)
+		
+		var/advclass_path = GLOB.loadout_selected_advclasses[REF(H)]
+		actual_outfit = outfit_path
+		
+		// If advclass is selected, use its outfit instead
+		if(advclass_path)
+			var/datum/advclass/advclass_datum = new advclass_path()
+			if(advclass_datum.outfit)
+				actual_outfit = advclass_datum.outfit
 	
 	// Clear existing equipment and spells if requested
 	if(delete_existing)
@@ -784,31 +921,35 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 		H.equipOutfit(actual_outfit)
 		H.regenerate_icons()
 	
-	// Find the corresponding job datum to apply any additional job spells
-	var/datum/job/job_datum = null
-	for(var/job_type in subtypesof(/datum/job))
-		var/datum/job/J = job_type
-		if(initial(J.outfit) == outfit_path || initial(J.outfit_female) == outfit_path)
-			job_datum = new job_type()
-			break
+	// For migrant roles, spells are already applied via the outfit
+	// For regular jobs, apply additional job spells if available
+	if(!is_migrant)
+		// Find the corresponding job datum to apply any additional job spells
+		var/datum/job/job_datum = null
+		for(var/job_type in subtypesof(/datum/job))
+			var/datum/job/J = job_type
+			if(initial(J.outfit) == outfit_path || initial(J.outfit_female) == outfit_path)
+				job_datum = new job_type()
+				break
+		
+		// Apply spells from job if available (separate from outfit)
+		if(job_datum && job_datum.spells)
+			for(var/S in job_datum.spells)
+				H.mind.AddSpell(new S)
 	
-	// Apply spells from job if available (separate from outfit)
-	if(job_datum && job_datum.spells)
-		for(var/S in job_datum.spells)
-			H.mind.AddSpell(new S)
-	
-	// Apply spell points from advclass if available
-	if(advclass_path)
-		var/datum/advclass/advclass_datum = new advclass_path()
-		if(advclass_datum.subclass_spellpoints > 0)
-			H.mind.adjust_spellpoints(advclass_datum.subclass_spellpoints)
+		// Apply spell points from advclass if available
+		var/advclass_path = GLOB.loadout_selected_advclasses[REF(H)]
+		if(advclass_path)
+			var/datum/advclass/advclass_datum = new advclass_path()
+			if(advclass_datum.subclass_spellpoints > 0)
+				H.mind.adjust_spellpoints(advclass_datum.subclass_spellpoints)
 	
 	if(actual_outfit)
-		to_chat(H, span_notice("Equipment and spells applied!"))
+		to_chat(H, span_notice("Equipment and spells applied[is_migrant ? " from migrant role" : ""]!"))
 		message_admins("[key_name_admin(usr)] applied equipment and spells from [actual_outfit] to [ADMIN_LOOKUPFLW(H)].")
 		log_admin("[key_name(usr)] applied equipment and spells from [actual_outfit] to [key_name(H)].")
 	else
-		to_chat(usr, span_warning("No outfit available for this job. You must select an advclass first."))
+		to_chat(usr, span_warning("No outfit available for this [is_migrant ? "migrant role" : "job"]."))
 
 /client/proc/apply_job_stats(mob/living/carbon/human/H, job_type_path, delete_existing = FALSE)
 	if(!ishuman(H))
@@ -820,14 +961,9 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 	
 	var/advclass_path = GLOB.loadout_selected_advclasses[REF(H)]
 	
-	// Reset stats to 10 if requested
+	// Reset stats to baseline (with racial and stat-pack bonuses) if requested
 	if(delete_existing)
-		var/list/stat_names = list(STAT_STRENGTH, STAT_PERCEPTION, STAT_INTELLIGENCE, STAT_CONSTITUTION, STAT_WILLPOWER, STAT_SPEED, STAT_FORTUNE)
-		for(var/stat in stat_names)
-			var/current_stat = H.get_stat(stat)
-			var/difference = 10 - current_stat
-			if(difference != 0)
-				H.change_stat(stat, difference)
+		H.roll_stats()
 	
 	// Find the job datum
 	var/datum/job/job_datum = null
@@ -936,14 +1072,10 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 	if(!ishuman(H))
 		return
 	
-	// Get the job datum directly from the path
-	var/datum/job/job_datum = new job_type_path()
-	
-	var/advclass_path = GLOB.loadout_selected_advclasses[REF(H)]
-	
-	if(!job_datum)
-		to_chat(usr, span_warning("Could not find job datum."))
-		return
+	// Determine if this is a migrant role or regular job
+	var/is_migrant = FALSE
+	if(ispath(job_type_path, /datum/migrant_role))
+		is_migrant = TRUE
 	
 	// Clear any excommunicated/outlawed status before applying new title
 	if(H.real_name in GLOB.excommunicated_players)
@@ -951,30 +1083,50 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 	if(H.real_name in GLOB.outlawed_players)
 		GLOB.outlawed_players -= H.real_name
 	
-	// Determine the appropriate title based on gender
-	var/title = job_datum.title
-	if(job_datum.f_title && (H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F))
-		title = job_datum.f_title
-	
-	// Set the job
-	H.job = title
-	
-	// Set advclass if selected
-	if(advclass_path)
-		var/datum/advclass/advclass_datum = new advclass_path()
-		H.advjob = advclass_datum.name
-		to_chat(H, span_notice("Examine title set to: [advclass_datum.examine_name || advclass_datum.name]"))
-		message_admins("[key_name_admin(usr)] set examine title for [ADMIN_LOOKUPFLW(H)] to [advclass_datum.examine_name || advclass_datum.name].")
-		log_admin("[key_name(usr)] set examine title for [key_name(H)] to [advclass_datum.examine_name || advclass_datum.name].")
+	if(is_migrant)
+		// For migrant roles, set the name directly
+		var/datum/migrant_role/migrant_datum = new job_type_path()
+		var/title = migrant_datum.name
+		H.job = title
+		H.advjob = null
+		to_chat(H, span_notice("Examine title set to: [title]"))
+		message_admins("[key_name_admin(usr)] set examine title for [ADMIN_LOOKUPFLW(H)] to [title].")
+		log_admin("[key_name(usr)] set examine title for [key_name(H)] to [title].")
+		qdel(migrant_datum)
 	else
-		// For jobs with advjob_examine = TRUE, set H.advjob to the appropriate title
-		if(job_datum.advjob_examine)
-			H.advjob = title
-		// Get display title if available
-		var/display_title = job_datum.display_title || title
-		to_chat(H, span_notice("Examine title set to: [display_title]"))
-		message_admins("[key_name_admin(usr)] set examine title for [ADMIN_LOOKUPFLW(H)] to [display_title].")
-		log_admin("[key_name(usr)] set examine title for [key_name(H)] to [display_title].")
+		// Get the job datum directly from the path
+		var/datum/job/job_datum = new job_type_path()
+		
+		var/advclass_path = GLOB.loadout_selected_advclasses[REF(H)]
+		
+		if(!job_datum)
+			to_chat(usr, span_warning("Could not find job datum."))
+			return
+		
+		// Determine the appropriate title based on gender
+		var/title = job_datum.title
+		if(job_datum.f_title && (H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F))
+			title = job_datum.f_title
+		
+		// Set the job
+		H.job = title
+		
+		// Set advclass if selected
+		if(advclass_path)
+			var/datum/advclass/advclass_datum = new advclass_path()
+			H.advjob = advclass_datum.name
+			to_chat(H, span_notice("Examine title set to: [advclass_datum.examine_name || advclass_datum.name]"))
+			message_admins("[key_name_admin(usr)] set examine title for [ADMIN_LOOKUPFLW(H)] to [advclass_datum.examine_name || advclass_datum.name].")
+			log_admin("[key_name(usr)] set examine title for [key_name(H)] to [advclass_datum.examine_name || advclass_datum.name].")
+		else
+			// For jobs with advjob_examine = TRUE, set H.advjob to the appropriate title
+			if(job_datum.advjob_examine)
+				H.advjob = title
+			// Get display title if available
+			var/display_title = job_datum.display_title || title
+			to_chat(H, span_notice("Examine title set to: [display_title]"))
+			message_admins("[key_name_admin(usr)] set examine title for [ADMIN_LOOKUPFLW(H)] to [display_title].")
+			log_admin("[key_name(usr)] set examine title for [key_name(H)] to [display_title].")
 
 /client/proc/clean_slate_mob(mob/living/carbon/human/H)
 	if(!ishuman(H))
@@ -987,13 +1139,8 @@ GLOBAL_LIST_EMPTY(loadout_selected_advclasses)
 	for(var/obj/item/I in H.held_items)
 		qdel(I)
 	
-	// Reset all stats to 10 (default)
-	var/list/stat_names = list(STAT_STRENGTH, STAT_PERCEPTION, STAT_INTELLIGENCE, STAT_CONSTITUTION, STAT_WILLPOWER, STAT_SPEED, STAT_FORTUNE)
-	for(var/stat in stat_names)
-		var/current_stat = H.get_stat(stat)
-		var/difference = 10 - current_stat // Reset to 10
-		if(difference != 0)
-			H.change_stat(stat, difference)
+	// Reset stats to baseline (10) plus racial and stat-pack modifiers
+	H.roll_stats()
 	
 	// Clear all skills
 	for(var/skill_type in subtypesof(/datum/skill))
