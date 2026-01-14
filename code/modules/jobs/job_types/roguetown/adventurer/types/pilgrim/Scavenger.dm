@@ -87,12 +87,12 @@
 	..()
 	r_hand = /obj/item/rogueweapon/pick/copper
 	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/rogueweapon/hammer/stone
-	beltl = /obj/item/rogueweapon/tongs/stone
+	beltr = /obj/item/rogueweapon/hammer/copper
+	beltl = /obj/item/rogueweapon/tongs
 	neck = /obj/item/storage/belt/rogue/pouch/coins/mid
 	gloves = /obj/item/clothing/gloves/roguetown/angle/grenzelgloves/blacksmith
 	cloak = /obj/item/clothing/cloak/apron/blacksmith
-	mouth = /obj/item/rogueweapon/huntingknife/scissors
+	mouth = /obj/item/rogueweapon/huntingknife/bronze
 	pants = /obj/item/clothing/under/roguetown/trou
 	backl = /obj/item/storage/backpack/rogue/backpack
 	backpack_contents = list(
@@ -136,6 +136,10 @@
 
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 
+	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/lumberjacking, 1, TRUE) 
 	H.adjust_skillrank(/datum/skill/craft/ceramics, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/masonry, 3, TRUE) //got to do something with all those rocks you find
