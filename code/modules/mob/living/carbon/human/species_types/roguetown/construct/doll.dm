@@ -8,13 +8,12 @@
 	use_titles = TRUE
 	race_titles = list("Homunculus", "Mannequin", "Marionette", "Puppet")
 	desc = "<b>Porcelain Doll</b><br>\
-	The pinnacle of both art and craftsmanship, originally made to provide companionship for ladies and wealthy women \
-	alike. Created to be simply toys or novelty decorations for the wealthy, they do not sleep, eat or bleed. However, \
-	due to the dark magic and heretical connotation that they share with the Golems of Giza, they were made to be incredibly \
-	brittle as to promote their subservience and remove any chance these somber creations have of harming their masters. \
-	Over time, they were seen to prove as valuable asset and advisory role due to their intellectual prowess, it is \
-	unknown what provided them with such a gift. A master wanting more engaging conversation? A lord wanting a more \
-	efficient clerk? Regardless, who knows what thoughts their eyes of glass truly conceal?<br> \
+	Before their banishment to the Underdark, the Dark Elves offered finely crafted dolls to Malum as acts of devotion,\
+believing mastery of craft to be the purest form of worship. Pleased, Malum is said to have breathed motion into these works,\
+granting them purpose without true soul or will. Noc, ever-watchful over all magic, infused his own sorcery into the creations, whether from balance or envy none can say.\
+This sacred tradition endured until exile severed the Dark Elves from Malum’s favor and turned his gaze from the depths below.\
+Though forsaken, the practice persists as a cultural rite, its meaning preserved even as its sanctity faded.\
+In Malum’s absence, modern dolls are often animated through darker rituals by binding stolen souls or outsider essences in place of divine breath. <br>\
 	<span style='color: #cc0f0f;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;'><b>-2 STR</span> |<span style='color: #6a8cb7;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;'> +2 INT | +1 SPD</b></span> </br> \
 	<span style='color: #cc0f0f;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;'><b><span style='color: #6a8cb7;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;'>Hungerless, Insomnia, Bloodless. Extremely fragile.</span></b></br>\
 	<span style='color: #cc0f0f;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;'><b><span style='color: #6a8cb7;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;'>Capable of installing skill exhibitors in themselves or other Golems.</span></b></br>"
