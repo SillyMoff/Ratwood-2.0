@@ -64,6 +64,8 @@
 	if(user.used_intent.type == /datum/intent/shovelscoop)
 		if(istype(T, /turf/open/floor/rogue/dirt))
 			var/turf/open/floor/rogue/dirt/D = T
+			var/muddy_dig = D.muddy && !heldclod && !D.holie //Check if this is muddy dirt with no hole or clod
+			
 			if(heldclod)
 				if(D.holie && D.holie.stage < 4)
 					D.holie.attackby(src, user)
@@ -88,6 +90,41 @@
 					heldclod = new(src)
 					playsound(T,'sound/items/dig_shovel.ogg', 100, TRUE)
 					update_icon()
+				
+				// If this is muddy dirt and we just dug a hole, offer continuous digging
+				if(muddy_dig && heldclod)
+					user.visible_message(span_notice("[user] begins digging for bait on [T]..."))
+					while(do_after(user, 1 SECONDS, target = T))
+						D = T  // Refresh the dirt tile reference
+						if(!(istype(D, /turf/open/floor/rogue/dirt)))
+							break
+						if(!(D.muddy))
+							to_chat(user, span_notice("The soil is no longer muddy."))
+							break
+						if(!(user.mobility_flags & MOBILITY_STAND))
+							to_chat(user, span_warning("You are knocked down and stop digging."))
+							break
+						if(!heldclod)
+							break
+						
+						user.changeNext_move(user.used_intent.clickcd)
+						if(max_blade_int)
+							remove_bintegrity(2)
+						playsound(T,'sound/items/dig_shovel.ogg', 100, TRUE)
+						
+						// Place the clod back and create a new hole
+						if(D.holie)
+							D.holie.attackby(src, user)
+						else
+							if(istype(T, /turf/open/floor/rogue/dirt/road))
+								qdel(heldclod)
+								T.ChangeTurf(/turf/open/floor/rogue/dirt, flags = CHANGETURF_INHERIT_AIR)
+							else
+								heldclod.forceMove(T)
+								heldclod = null
+							heldclod = new(src)
+							playsound(T,'sound/items/dig_shovel.ogg', 100, TRUE)
+							update_icon()
 			return
 		if(heldclod)
 			if(istype(T, /turf/open/water))
