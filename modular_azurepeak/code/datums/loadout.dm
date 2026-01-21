@@ -1977,9 +1977,9 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	triumph_cost = 1
 
 /datum/loadout_item/harp
-	name = "Pouche"
-	path = /obj/item/storage/belt/rogue/pouch
-	triumph_cost = 3
+	name = "Harp"
+	path = /obj/item/rogue/instrument/harp
+	triumph_cost = 1
 
 /datum/loadout_item/hurdygurdy
 	name = "Hurdy-Gurdy"
