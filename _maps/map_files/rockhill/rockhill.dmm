@@ -22863,8 +22863,7 @@
 "gSg" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
-	lockid = "physician";
-	name = "examination room"
+	lockid = "physician"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/physician)
