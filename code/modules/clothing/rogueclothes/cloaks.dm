@@ -849,6 +849,23 @@
 	salvage_result = /obj/item/natural/hide/cured
 	salvage_amount = 3
 
+/obj/item/clothing/cloak/apron/maid
+	name = "maid apron"
+	desc = "The frilly apron of a housemaster. It has pockets to store small things."
+	detail_color = "_detail"
+	slot_flags = ITEM_SLOT_ARMOR | ITEM_SLOT_CLOAK
+	detail_color = CLOTHING_BLACK
+	icon_state = "maidapron"
+	item_state = "maidapron"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+	boobed = FALSE
+	grid_width = 64
+	grid_height = 64
+
+/obj/item/clothing/cloak/apron/maid/Initialize(mapload, ...)
+	. = ..()
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
+
 /obj/item/clothing/cloak/apron
 	name = "apron"
 	desc = "An apron used by many workshop workers."
