@@ -761,7 +761,6 @@
 	nodismemsleeves = TRUE
 	inhand_mod = TRUE
 //	allowed_sex = list(MALE)
-	allowed_race = NON_DWARVEN_RACE_TYPES
 	detail_tag = "_det"
 	detail_color = CLOTHING_AZURE
 
@@ -838,6 +837,7 @@
 	icon_state = "bear_cloak"
 	item_state = "bear_cloak"
 	slot_flags = ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
+	allowed_race = CLOTHED_RACES_TYPES
 	salvage_result = /obj/item/natural/hide/cured
 	salvage_amount = 3
 
@@ -848,6 +848,23 @@
 	slot_flags = ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
 	salvage_result = /obj/item/natural/hide/cured
 	salvage_amount = 3
+
+/obj/item/clothing/cloak/apron/maid
+	name = "maid apron"
+	desc = "The frilly apron of a housemaster. It has pockets to store small things."
+	detail_color = "_detail"
+	slot_flags = ITEM_SLOT_ARMOR | ITEM_SLOT_CLOAK
+	detail_color = CLOTHING_BLACK
+	icon_state = "maidapron"
+	item_state = "maidapron"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+	boobed = FALSE
+	grid_width = 64
+	grid_height = 64
+
+/obj/item/clothing/cloak/apron/maid/Initialize(mapload, ...)
+	. = ..()
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
 
 /obj/item/clothing/cloak/apron
 	name = "apron"
@@ -1268,7 +1285,6 @@
 	desc = "A heavy leather cloak held together by a gilded pin, depicting the Grand Duke's house. The sign of a faithful servant."
 	icon_state = "shadowcloak"
 	color = null
-	allowed_race = NON_DWARVEN_RACE_TYPES
 
 /obj/item/clothing/cloak/thief_cloak
 	name = "rapscallion's shawl"
