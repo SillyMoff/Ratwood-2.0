@@ -73,14 +73,9 @@
 	contains = list(/obj/item/clothing/neck/roguetown/coif/heavypadding)
 
 /datum/supply_pack/rogue/Knight/Bevor
-	name = "Bevor"
+	name = "Steel Bevor"
 	cost = 20
 	contains = list(/obj/item/clothing/neck/roguetown/bevor)
-
-/datum/supply_pack/rogue/Knight/gorget
-	name = "Gorget"
-	cost = 20
-	contains = list(/obj/item/clothing/neck/roguetown/gorget)
 
 /datum/supply_pack/rogue/Knight/sgorget
 	name = "Steel Gorget"
