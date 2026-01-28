@@ -6,7 +6,6 @@
 	outfit = /datum/outfit/job/roguetown/homesteader
 	maximum_possible_slots = 10 // Should never fill, for the purpose of players to know what types towners are in round at the menu
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
-	subclass_social_rank = SOCIAL_RANK_PEASANT
 	traits_applied = list(TRAIT_HOMESTEAD_EXPERT)
 	subclass_stats = list(
 		STATKEY_SPD = -1,
@@ -33,22 +32,37 @@
 	// Homesteader cosmetic title selection
 	H.adjust_blindness(-3)
 	var/cosmetic_titles = list(
+	"Angler",
 	"Artisan", "Artisana",
+	"Butcher",
 	"Craftsman", "Craftswoman",
 	"Devotee", "Devotess",
 	"Fieldworker",
 	"Forager",
+	"Forester",
+	"Freeholder",
+	"Gardener",
 	"Handiworker",
 	"Hedgefolk",
 	"Herbalist",
 	"Homesteader", "Homesteadress",
+	"Housekeeper",
 	"Householder", "Househusband", "Housewife",
 	"Laborer",
+	"Mason",
 	"Nurse", "Nun",
 	"Pioneer",
+	"Prospector",
+	"Scholar",
+	"Scribe",
 	"Settler",
-	"Tradesperson",
+	"Shepherd",
+	"Smith",
+	"Town Doctor",
+	"Town Ranger",
+	"Tradesman", "Tradewoman",
 	"Villager",
+	"Weaver",
 	"Woodsman", "Woodswoman",
 	"Chirurgeon")
 	var/cosmetic_choice = input(H, "Select your cosmetic title.", "Cosmetic Titles") as anything in cosmetic_titles
@@ -65,18 +79,23 @@
 		if("Fieldworker")
 			to_chat(H, span_notice("You are a Fieldworker, a laborer of fields and land."))
 			H.mind.cosmetic_class_title = "Fieldworker"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Fieldwoman")
 			to_chat(H, span_notice("You are a Fieldwoman, a laborer of fields and land."))
 			H.mind.cosmetic_class_title = "Fieldwoman"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Handiworker")
 			to_chat(H, span_notice("You are a Handiworker, skilled in small crafts and repairs."))
 			H.mind.cosmetic_class_title = "Handiworker"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Handiwoman")
 			to_chat(H, span_notice("You are a Handiwoman, skilled in small crafts and repairs."))
 			H.mind.cosmetic_class_title = "Handiwoman"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Hedgefolk")
 			to_chat(H, span_notice("You are Hedgefolk, a rural dweller of modest means."))
 			H.mind.cosmetic_class_title = "Hedgefolk"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Herbalist")
 			to_chat(H, span_notice("You are an Herbalist, skilled in plants and their remedies."))
 			H.mind.cosmetic_class_title = "Herbalist"
@@ -84,30 +103,39 @@
 		if("Homesteader")
 			to_chat(H, span_notice("You are a Homesteader, a settler and keeper of land."))
 			H.mind.cosmetic_class_title = "Homesteader"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Homesteadress")
 			to_chat(H, span_notice("You are a Homesteadress, a settler and keeper of land."))
 			H.mind.cosmetic_class_title = "Homesteadress"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Householder")
 			to_chat(H, span_notice("You are a Householder, a keeper of dwelling and family."))
 			H.mind.cosmetic_class_title = "Householder"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Househusband")
 			to_chat(H, span_notice("You are a Househusband, a keeper of dwelling and family."))
 			H.mind.cosmetic_class_title = "Househusband"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Housewife")
 			to_chat(H, span_notice("You are a Housewife, a keeper of dwelling and family."))
 			H.mind.cosmetic_class_title = "Housewife"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Laborer")
 			to_chat(H, span_notice("You are a Laborer, a hard worker and commoner."))
 			H.mind.cosmetic_class_title = "Laborer"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Laboress")
 			to_chat(H, span_notice("You are a Laboress, a hard worker and commoner."))
 			H.mind.cosmetic_class_title = "Laboress"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Villager")
 			to_chat(H, span_notice("You are a Villager, common folk of the settlement."))
 			H.mind.cosmetic_class_title = "Villager"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Villagewoman")
 			to_chat(H, span_notice("You are a Villagewoman, common folk of the settlement."))
 			H.mind.cosmetic_class_title = "Villagewoman"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Artisan")
 			to_chat(H, span_notice("You are an Artisan, skilled in your craft and trade."))
 			H.mind.cosmetic_class_title = "Artisan"
@@ -119,18 +147,22 @@
 		if("Pioneer")
 			to_chat(H, span_notice("You are a Pioneer, a brave settler of new lands."))
 			H.mind.cosmetic_class_title = "Pioneer"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Pioneress")
 			to_chat(H, span_notice("You are a Pioneress, a brave settler of new lands."))
 			H.mind.cosmetic_class_title = "Pioneress"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Settler")
 			to_chat(H, span_notice("You are a Settler, one who makes a home in strange lands."))
 			H.mind.cosmetic_class_title = "Settler"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Settleress")
 			to_chat(H, span_notice("You are a Settleress, one who makes a home in strange lands."))
 			H.mind.cosmetic_class_title = "Settleress"
-		if("Tradesperson")
-			to_chat(H, span_notice("You are a Tradesperson, skilled in commerce and craft."))
-			H.mind.cosmetic_class_title = "Tradesperson"
+			H.social_rank = SOCIAL_RANK_PEASANT
+		if("Tradesman")
+			to_chat(H, span_notice("You are a Tradesman, skilled in commerce and craft."))
+			H.mind.cosmetic_class_title = "Tradesman"
 			H.social_rank = SOCIAL_RANK_YEOMAN
 		if("Tradewoman")
 			to_chat(H, span_notice("You are a Tradewoman, skilled in commerce and craft."))
@@ -139,9 +171,11 @@
 		if("Woodsman")
 			to_chat(H, span_notice("You are a Woodsman, at home in forest and timber."))
 			H.mind.cosmetic_class_title = "Woodsman"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Woodswoman")
 			to_chat(H, span_notice("You are a Woodswoman, at home in forest and timber."))
 			H.mind.cosmetic_class_title = "Woodswoman"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Craftsman")
 			to_chat(H, span_notice("You are a Craftsman, skilled in your trade."))
 			H.mind.cosmetic_class_title = "Craftsman"
@@ -153,6 +187,7 @@
 		if("Forager")
 			to_chat(H, span_notice("You are a Forager, gathering from the wilds."))
 			H.mind.cosmetic_class_title = "Forager"
+			H.social_rank = SOCIAL_RANK_PEASANT
 		if("Nurse")
 			to_chat(H, span_notice("You are a Nurse, caring for the sick and wounded."))
 			H.mind.cosmetic_class_title = "Nurse"
@@ -164,6 +199,66 @@
 		if("Chirurgeon")
 			to_chat(H, span_notice("You are a Chirurgeon, skilled in surgical arts and healing."))
 			H.mind.cosmetic_class_title = "Chirurgeon"
+			H.social_rank = SOCIAL_RANK_YEOMAN
+		if("Angler")
+			to_chat(H, span_notice("You are an Angler, skilled in fishing and catching."))
+			H.mind.cosmetic_class_title = "Angler"
+			H.social_rank = SOCIAL_RANK_PEASANT
+		if("Weaver")
+			to_chat(H, span_notice("You are a Weaver, skilled in textiles and cloth."))
+			H.mind.cosmetic_class_title = "Weaver"
+			H.social_rank = SOCIAL_RANK_YEOMAN
+		if("Mason")
+			to_chat(H, span_notice("You are a Mason, skilled in stonework and building."))
+			H.mind.cosmetic_class_title = "Mason"
+			H.social_rank = SOCIAL_RANK_YEOMAN
+		if("Forester")
+			to_chat(H, span_notice("You are a Forester, keeper of woods and timber."))
+			H.mind.cosmetic_class_title = "Forester"
+			H.social_rank = SOCIAL_RANK_PEASANT
+		if("Town Ranger")
+			to_chat(H, span_notice("You are a Town Ranger, protector of roads and wilderness."))
+			H.mind.cosmetic_class_title = "Town Ranger"
+			H.social_rank = SOCIAL_RANK_YEOMAN
+		if("Prospector")
+			to_chat(H, span_notice("You are a Prospector, seeking minerals and fortune."))
+			H.mind.cosmetic_class_title = "Prospector"
+			H.social_rank = SOCIAL_RANK_PEASANT
+		if("Freeholder")
+			to_chat(H, span_notice("You are a Freeholder, owner of your own land."))
+			H.mind.cosmetic_class_title = "Freeholder"
+			H.social_rank = SOCIAL_RANK_YEOMAN
+		if("Housekeeper")
+			to_chat(H, span_notice("You are a Housekeeper, maintaining home and hearth."))
+			H.mind.cosmetic_class_title = "Housekeeper"
+			H.social_rank = SOCIAL_RANK_PEASANT
+		if("Town Doctor")
+			to_chat(H, span_notice("You are a Town Doctor, healer of the common folk."))
+			H.mind.cosmetic_class_title = "Town Doctor"
+			H.social_rank = SOCIAL_RANK_YEOMAN
+		if("Scribe")
+			to_chat(H, span_notice("You are a Scribe, keeper of records and letters."))
+			H.mind.cosmetic_class_title = "Scribe"
+			H.social_rank = SOCIAL_RANK_YEOMAN
+		if("Scholar")
+			to_chat(H, span_notice("You are a Scholar, learned in books and knowledge."))
+			H.mind.cosmetic_class_title = "Scholar"
+			H.social_rank = SOCIAL_RANK_YEOMAN
+		if("Butcher")
+			to_chat(H, span_notice("You are a Butcher, skilled in meat and trade."))
+			H.mind.cosmetic_class_title = "Butcher"
+			H.social_rank = SOCIAL_RANK_YEOMAN
+		if("Gardener")
+			to_chat(H, span_notice("You are a Gardener, tending plants and soil."))
+			H.mind.cosmetic_class_title = "Gardener"
+			H.social_rank = SOCIAL_RANK_PEASANT
+		if("Shepherd")
+			to_chat(H, span_notice("You are a Shepherd, keeper of flocks."))
+			H.mind.cosmetic_class_title = "Shepherd"
+			H.social_rank = SOCIAL_RANK_PEASANT
+		if("Smith")
+			to_chat(H, span_notice("You are a Smith, forger of metal and tools."))
+			H.mind.cosmetic_class_title = "Smith"
 			H.social_rank = SOCIAL_RANK_YEOMAN
 
 
@@ -474,28 +569,23 @@
 			if(expert_skill_name in craft_skills)
 				craft_skills -= expert_skill_name
 
-		// Select one COMBAT skill to JOURNEYMAN
-		var/journeyman_combat_name = input(H, "Choose a COMBAT skill to JOURNEYMAN. [1/1]", "Skill Selection") as anything in combat_skills
-		if(journeyman_combat_name)
-			H.adjust_skillrank_up_to(combat_skills[journeyman_combat_name], SKILL_LEVEL_JOURNEYMAN, TRUE)
-			if(journeyman_combat_name in combat_skills)
-				combat_skills -= journeyman_combat_name
-
-		// Select two MISC/LABOR/CRAFT skills to JOURNEYMAN
-		for(var/i in 1 to 3)
-			var/journeyman_name = input(H, "Choose a MISC/LABOR/CRAFT skill to JOURNEYMAN. [i]/3", "Skill Selection") as anything in misc_skills + labor_skills + craft_skills
+		// Select four skills to JOURNEYMAN (from any category)
+		for(var/i in 1 to 4)
+			var/journeyman_name = input(H, "Choose a skill to JOURNEYMAN. [i]/4", "Skill Selection") as anything in misc_skills + labor_skills + craft_skills + combat_skills
 			if(journeyman_name)
-				H.adjust_skillrank_up_to(misc_skills[journeyman_name] || labor_skills[journeyman_name] || craft_skills[journeyman_name], SKILL_LEVEL_JOURNEYMAN, TRUE)
+				H.adjust_skillrank_up_to(misc_skills[journeyman_name] || labor_skills[journeyman_name] || craft_skills[journeyman_name] || combat_skills[journeyman_name], SKILL_LEVEL_JOURNEYMAN, TRUE)
 				if(journeyman_name in misc_skills)
 					misc_skills -= journeyman_name
 				if(journeyman_name in labor_skills)
 					labor_skills -= journeyman_name
 				if(journeyman_name in craft_skills)
 					craft_skills -= journeyman_name
+				if(journeyman_name in combat_skills)
+					combat_skills -= journeyman_name
 
-		// Select three skills to APPRENTICE
-		for(var/i in 1 to 2)
-			var/apprentice_name = input(H, "Choose a skill to APPRENTICE. [i]/2", "Skill Selection") as anything in misc_skills + labor_skills + craft_skills + combat_skills
+		// Select two skills to APPRENTICE
+		for(var/i in 1 to 3)
+			var/apprentice_name = input(H, "Choose a skill to APPRENTICE. [i]/3", "Skill Selection") as anything in misc_skills + labor_skills + craft_skills + combat_skills
 			if(apprentice_name)
 				H.adjust_skillrank_up_to(misc_skills[apprentice_name] || labor_skills[apprentice_name] || craft_skills[apprentice_name] || combat_skills[apprentice_name], SKILL_LEVEL_APPRENTICE, TRUE)
 				if(apprentice_name in misc_skills)
