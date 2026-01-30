@@ -165,19 +165,9 @@
 	desc = "Some fell magick has rendered me inwardly unliving - I do not hunger, and I do not breathe."
 	added_traits = list(TRAIT_NOHUNGER, TRAIT_NOBREATH)
 
-/datum/virtue/utility/hemophage
-	name = "Hemophage"
-	desc = "Whether by curse or my people, blood is the only thing to keep me alive. Normal sources of nutrition and hydration will make me ill."
-	added_traits = list(TRAIT_HEMOPHAGE)
-	custom_text = "Any element of a virtue that modifies eating will be canceled out by Hemophage."
-
-//No rotcured, deathless or feral appetite modifications. Thanks!
-/datum/virtue/utility/hemophage/handle_traits(mob/living/carbon/human/recipient)
+/datum/virtue/utility/deathless/handle_traits(mob/living/carbon/human/recipient)
 	..()
-	if(HAS_TRAIT(recipient, TRAIT_NASTY_EATER))
-		to_chat(recipient, "My reliance on lyfeblood cannot be severed!")
-		REMOVE_TRAIT(recipient, TRAIT_NASTY_EATER, TRAIT_VIRTUE)
-	if(HAS_TRAIT(recipient, TRAIT_NOHUNGER))
+	if(HAS_TRAIT(recipient, TRAIT_HEMOPHAGE))
 		to_chat(recipient, "My reliance on lyfeblood cannot be severed!")
 		REMOVE_TRAIT(recipient, TRAIT_NOHUNGER, TRAIT_VIRTUE)
 
@@ -185,6 +175,12 @@
 	name = "Feral Appetite"
 	desc = "Raw, toxic or spoiled food doesn't bother my superior digestive system."
 	added_traits = list(TRAIT_NASTY_EATER)
+
+/datum/virtue/utility/feral_appetite/handle_traits(mob/living/carbon/human/recipient)
+	..()
+	if(HAS_TRAIT(recipient, TRAIT_HEMOPHAGE))
+		to_chat(recipient, "My reliance on lyfeblood cannot be severed!")
+		REMOVE_TRAIT(recipient, TRAIT_NASTY_EATER, TRAIT_VIRTUE)
 
 /datum/virtue/utility/night_vision
 	name = "Night-eyed"
