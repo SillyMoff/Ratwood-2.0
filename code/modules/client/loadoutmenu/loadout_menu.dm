@@ -13,7 +13,7 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "LoadoutMenu", "Loadout Menu")
-		ui.set_state(GLOB.language_menu_state)
+		ui.set_state(GLOB.always_state)
 		ui.open()
 
 /datum/loadout_menu/ui_assets(mob/user)
