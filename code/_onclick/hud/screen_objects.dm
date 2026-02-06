@@ -103,6 +103,8 @@
 						to_chat(M, "<span class='info'>[LA.name] - ,[LA.key]</span>")
 					if(!finn)
 						to_chat(M, "<span class='warning'>I don't know any languages.</span>")
+					else // open_language_menu
+						to_chat(M, "<a href='?src=[REF(M)];task=open_language_menu;'>Language Menu</a>")
 					to_chat(M, "*----*")
 		for(var/X in GLOB.roguetraits)
 			if(HAS_TRAIT(L, X))
