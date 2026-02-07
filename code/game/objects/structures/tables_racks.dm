@@ -609,6 +609,7 @@
 	icon_state = "shelf"
 	density = FALSE
 	climbable = FALSE
+	climb_offset = 0
 	dir = SOUTH
 	pixel_y = 32
 
@@ -616,15 +617,18 @@
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "shelf_big"
 	climbable = FALSE
+	climb_offset = 0
 	dir = SOUTH
 	pixel_y = 16
 
 /obj/structure/rack/rogue/shelf/biggest
 	icon_state = "shelf_biggest"
+	climb_offset = 0
 	pixel_y = 0
 
 /obj/structure/rack/rogue/shelf/notdense // makes the wall mounted one less weird in a way, got downside of offset when loaded again tho
 	density = FALSE
+	climb_offset = 0
 	pixel_y = 24
 
 // Necessary to avoid a critical bug with disappearing weapons.
